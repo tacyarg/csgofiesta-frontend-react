@@ -70,16 +70,16 @@ class Wheel extends React.Component {
 
   render() {
     const { options, data } = this.state
-    const { status } = this.props
+    const { status, ...props } = this.props
     return (
-      <Box width={1} css={{ position: 'relative' }}>
-        <Doughnut data={data} options={options} />
+      <Box {...props} css={{ 
+        minWidth: 400,
+        position: 'relative' }}>
+        <Doughnut height="100%" width="100%" data={data} options={options} />
         <Status {...status} />
       </Box>
     )
   }
 }
-
-
 
 export default Wheel

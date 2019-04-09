@@ -44,7 +44,7 @@ export default ({ config }) => (
       </Text>
       <Rules {...config} />
     </Flex>
-    <Box mx="auto" />
+    <Box mx="auto"/>
     <PrimaryButton>Deposit</PrimaryButton>
   </InfoPanel>
 )

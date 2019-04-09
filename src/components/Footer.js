@@ -51,7 +51,7 @@ class Footer extends React.Component {
     return (
       <Box {...styles.container}>
         <Box {...styles.left}>
-          &copy; 2016-2018 CSGOFiesta
+          &copy; 2016-2019 CSGOFiesta
           <span>, All Rights Reserved</span>
         </Box>
         <Box {...styles.right}>

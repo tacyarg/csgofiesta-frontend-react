@@ -21,7 +21,10 @@ const Stat = ({ type, value, label, icon }) => (
     p={15}
     alignItems="center"
     backgroundColor="rgba(26, 22, 36, 0.8)"
-    css={{ borderRadius: 5 }}
+    css={{
+      borderRadius: 5,
+      minWidth: 300,
+    }}
   >
     <Box>
       <Heading>{parseType(type, value)}</Heading>

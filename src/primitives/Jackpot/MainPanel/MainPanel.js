@@ -1,8 +1,8 @@
 import React from 'react'
-import { Flex } from 'rebass'
+import { Box, Flex } from 'rebass'
 
 import Wheel from './Wheel/Wheel'
-import RoundStats from './RoundInfo'
+import RoundStats from './RoundStats'
 
 import AmigosIcon from '../../../assets/img/amigos.png'
 import MaracasIcon from '../../../assets/img/maracas.png'
@@ -38,20 +38,22 @@ const generateRoundStats = jackpot => {
 export default props => (
   <Flex
     m={3}
-    width={2 / 3}
     p={3}
     css={{
       background: 'rgba(0,0,0,0.25)',
     }}
+    flex={1}
     alignItems="center"
+    flexWrap="wrap"
+    justifyContent="center"
   >
     <Wheel
+      mx="auto"
       bets={props.bets.map(bet => {
         bet.player = props.players.find(player => player.id === bet.userid)
         return bet
       })}
     />
-    {/* <Box mx="auto" /> */}
-    <RoundStats width={1 / 2} stats={generateRoundStats(props)} />
+    <RoundStats stats={generateRoundStats(props)} />
   </Flex>
 )
