@@ -15,18 +15,8 @@ class Jackpot extends React.Component {
   render() {
     return (
       <Flex width={1} flexWrap="wrap">
-        <SidePanel
-          css={{
-            minWidth: 500,
-          }}
-          {...this.state}
-        />
-        <MainPanel
-          css={{
-            minWidth: 500,
-          }}
-          {...this.state}
-        />
+        <SidePanel {...this.state} />
+        <MainPanel {...this.state} />
       </Flex>
     )
   }
