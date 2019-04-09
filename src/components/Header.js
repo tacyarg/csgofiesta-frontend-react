@@ -5,19 +5,6 @@ import Logo from '../primitives/Header/Logo'
 import NavBtn from '../primitives/Header/NavButton'
 import UserMenu from '../primitives/Header/UserMenu'
 
-const styles = {
-  headerLeft: {
-    display: 'flex',
-    flex: 1,
-  },
-  headerRight: {
-    display: 'flex',
-  },
-  headerBtn: {
-    marginLeft: '10px',
-  },
-}
-
 class Header extends React.Component {
   constructor(props) {
     super(props)
