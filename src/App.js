@@ -5,18 +5,18 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 
 import NotFound from './pages/NotFound'
-import Home from './pages/Home'
+import Jackpot from './pages/Jackpot'
 
 const App = ({ actions }) => (
   <>
     <Header />
     <Switch>
-      <Redirect exact from="/" to="/home" />
+      <Redirect exact from="/" to="/jackpot" />
 
       <Route
-        path="/home"
+        path="/jackpot"
         render={props => {
-          return <Home actions={actions} />
+          return <Jackpot actions={actions} />
         }}
       />
 

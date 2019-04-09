@@ -1,5 +1,5 @@
-# ReactJS Boilerplate
-Simple react base code.
+# CSGOFiesta REMASTERED
+Simple react base code, WIP
 
 # Installation
 
