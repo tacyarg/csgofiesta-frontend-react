@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Flex, Text } from 'rebass'
-import InfoPanel from '../InfoPanel'
+import InfoPanel from './InfoPanel'
 import PrimaryButton from '../PrimaryButton'
 
 function parseType(type, value) {

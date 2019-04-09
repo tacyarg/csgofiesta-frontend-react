@@ -1,5 +1,5 @@
 import React from 'react'
-import InfoPanel from '../InfoPanel'
+import InfoPanel from './InfoPanel'
 
 // function parseType(type, value) {
 //   switch (type) {

@@ -27,21 +27,21 @@ class Footer extends React.Component {
     super(props)
     this.state = {
       routes: [
-        {
-          link: '/',
-          icon: '',
-          text: 'Provable Fair',
-        },
-        {
-          link: '/',
-          icon: '',
-          text: 'Twitter',
-        },
-        {
-          link: '/',
-          icon: '',
-          text: 'Discord',
-        },
+        // {
+        //   link: '/',
+        //   icon: '',
+        //   text: 'Provable Fair',
+        // },
+        // {
+        //   link: '/',
+        //   icon: '',
+        //   text: 'Twitter',
+        // },
+        // {
+        //   link: '/',
+        //   icon: '',
+        //   text: 'Discord',
+        // },
       ],
     }
   }
