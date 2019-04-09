@@ -1,5 +1,5 @@
 # CSGOFiesta REMASTERED
-Simple react base code, WIP
+Simple react base code, WIP yeet
 
 # Installation
 
