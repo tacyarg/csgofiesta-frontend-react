@@ -37,7 +37,7 @@ const generateRoundStats = jackpot => {
 
 export default props => (
   <Flex
-    m={3}
+    // m={3}
     p={3}
     css={{
       background: 'rgba(0,0,0,0.25)',

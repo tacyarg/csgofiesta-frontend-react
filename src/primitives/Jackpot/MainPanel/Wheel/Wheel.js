@@ -73,7 +73,7 @@ class Wheel extends React.Component {
     const { status, ...props } = this.props
     return (
       <Box {...props} css={{ 
-        minWidth: 400,
+        minWidth: 320,
         position: 'relative' }}>
         <Doughnut height="100%" width="100%" data={data} options={options} />
         <Status {...status} />

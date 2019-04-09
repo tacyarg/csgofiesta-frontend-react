@@ -9,7 +9,7 @@ import NotFound from './pages/NotFound'
 import Jackpot from './pages/Jackpot'
 
 const App = ({ actions, ...props }) => (
-  <Flex flexDirection="column" width={1} css={{ height: '100vh' }}>
+  <Flex flexDirection="column" width={1} css={{ height: '100vh', overflow: 'hidden' }}>
     <Header {...props} />
 
     <Switch>

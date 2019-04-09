@@ -13,9 +13,13 @@ class MainJackpot extends React.Component {
 
   render() {
     return (
-      <Box css={{
-        height: '100%'
-      }}>
+      <Box
+        css={{
+          height: '100%',
+          overflow: 'hidden',
+          overflowY: 'auto',
+        }}
+      >
         <Jackpot />
       </Box>
     )

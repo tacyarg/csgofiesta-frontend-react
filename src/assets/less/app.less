@@ -1,3 +1,5 @@
+@import "./variables.less";
+
 * {
   margin: 0;
   padding: 0;
@@ -26,4 +28,23 @@ body {
   background: linear-gradient(fade(#2c263e, 80%), fade(#2c263e, 90%)),
     url('../img/bg1.png') center center fixed;
   background-size: cover;
+}
+
+
+::-webkit-scrollbar {
+  background-color: @colorDarker;
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+  background: @colorSecondary;
+  background: -webkit-linear-gradient(@GALeft 0%, @GARight 82%);
+  background: -o-linear-gradient(@GALeft 0%, @GARight 82%);
+  background: linear-gradient(@GALeft 0%, @GARight 82%);
+}
+
+::-webkit-scrollbar-track {
+  background-color: @colorDarker - 90;
 }
