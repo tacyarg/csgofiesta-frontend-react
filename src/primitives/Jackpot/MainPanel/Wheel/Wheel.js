@@ -18,7 +18,7 @@ class Wheel extends React.Component {
         // tooltips: { enabled: false },
         // hover: { mode: null },
         responsive: true,
-        cutoutPercentage: 75,
+        cutoutPercentage: 80,
         maintainAspectRatio: true,
         elements: {
           arc: {

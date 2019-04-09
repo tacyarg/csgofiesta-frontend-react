@@ -6,6 +6,16 @@
   // box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'JIMargarita';
+  src: url('../fonts/JI_Margarita.eot?') format('eot'),
+    url('../fonts/JI_Margarita.woff') format('woff'),
+    url('../fonts/JI_Margarita.ttf') format('truetype'),
+    url('../fonts/JI_Margarita.svg#JIMargarita') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 a {
   color: inherit; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
@@ -13,6 +23,7 @@ a {
 
 body {
   height: 100vh;
-  background: linear-gradient(fade(#2c263e, 80%), fade(#2c263e, 90%)), url('../img/bg1.png') center center fixed;
+  background: linear-gradient(fade(#2c263e, 80%), fade(#2c263e, 90%)),
+    url('../img/bg1.png') center center fixed;
   background-size: cover;
 }

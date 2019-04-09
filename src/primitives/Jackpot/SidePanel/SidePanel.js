@@ -5,7 +5,15 @@ import InfoBar from './InfoBar'
 import Bet from './Bet'
 
 const SidePanel = ({ config, bets, players, value, ...props }) => (
-  <Flex {...props} p={3} flex={1} flexDirection="column">
+  <Flex
+    {...props}
+    p={3}
+    flex={1}
+    flexDirection="column"
+    css={{
+      maxWidth: 600,
+    }}
+  >
     <InfoBar config={config} />
     {bets.map(bet => {
       bet.chance = (100 / (value / bet.value)).toFixed(2)

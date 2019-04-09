@@ -1,4 +1,5 @@
 import React from 'react'
+import { Flex, Box } from 'rebass'
 
 import Jackpot from '../components/Jackpot'
 
@@ -11,7 +12,13 @@ class MainJackpot extends React.Component {
   componentDidMount() {}
 
   render() {
-    return <Jackpot />
+    return (
+      <Box css={{
+        height: '100%'
+      }}>
+        <Jackpot />
+      </Box>
+    )
   }
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Box from 'ui-box'
+import { Flex, Box } from 'rebass'
 
 import FooterLink from '../primitives/Footer/Link'
 
