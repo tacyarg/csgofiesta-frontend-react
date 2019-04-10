@@ -55,7 +55,6 @@ class Jackpot extends React.Component {
           css={{
             height: '100%',
             overflow: 'hidden',
-            overflowY: 'auto',
           }}
         >
           <MainPanel {...this.state} />
