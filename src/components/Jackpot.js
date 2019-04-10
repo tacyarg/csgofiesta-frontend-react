@@ -46,15 +46,7 @@ class Jackpot extends React.Component {
 
   render() {
     return (
-      <Flex
-        width={1}
-        flexWrap="wrap"
-        css={{
-          height: '100%',
-          overflow: 'hidden',
-          // overflowY: 'auto',
-        }}
-      >
+      <Flex {...this.props} flexWrap="wrap">
         <SidePanel {...this.state} />
         <Flex
           p={3}

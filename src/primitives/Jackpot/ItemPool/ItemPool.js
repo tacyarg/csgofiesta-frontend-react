@@ -11,9 +11,14 @@ const ItemPool = ({ items }) => (
     flexWrap="wrap"
     alignContent="start"
     justifyContent="center"
+    css={{
+      maxHeight: '100%',
+      overflow: 'hidden',
+      overflowY: 'auto',
+    }}
   >
     {items.map((item, index) => (
-      <GameItem key={item.id+index} {...parseItem(item)} />
+      <GameItem key={item.id + index} {...parseItem(item)} />
     ))}
   </Flex>
 )
