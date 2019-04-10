@@ -16,32 +16,6 @@ class Jackpot extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(this.placeFakeBet, 1000)
-  }
-
-  placeFakeBet = () => {
-    const clonedState = lodash.cloneDeep(this.state)
-    const bet = lodash.sample(this.state.bets)
-    bet.color = '#' + Math.floor(Math.random() * 16777215).toString(16)
-    bet.id = lodash.random(0, 10000)
-    bet.items = bet.items.map(item => {
-      return {
-        ...item,
-        price: lodash.random(0.01, 10),
-        id: lodash.random(bet.id, 10000),
-      }
-    })
-    bet.value = bet.items.reduce((memo, item) => {
-      memo += item.price
-      return memo
-    }, 0)
-    console.log('placing bet', bet)
-    clonedState.bets.push(bet)
-    this.setState({
-      value: clonedState.value + bet.value,
-      bets: clonedState.bets,
-      items: [...this.state.items, ...bet.items],
-    })
   }
 
   render() {

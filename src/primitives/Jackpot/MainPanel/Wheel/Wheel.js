@@ -46,7 +46,7 @@ class Wheel extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if(prevProps.bets.length === this.props.bets.length) return false
+    if (prevProps.bets.length === this.props.bets.length) return false
     console.log(this.props.bets.length)
     this.mapBets(this.props.bets)
   }
@@ -76,9 +76,13 @@ class Wheel extends React.Component {
     const { options, data } = this.state
     const { status, ...props } = this.props
     return (
-      <Box {...props} css={{ 
-        minWidth: 320,
-        position: 'relative' }}>
+      <Box
+        {...props}
+        css={{
+          width: '20vw',
+          position: 'relative',
+        }}
+      >
         <Doughnut height="100%" width="100%" data={data} options={options} />
         <Status {...status} />
       </Box>

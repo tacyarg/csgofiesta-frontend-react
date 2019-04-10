@@ -1,6 +1,7 @@
 import React from 'react'
 import { Flex, Box } from 'rebass'
 
+import Chat from '../components/Chat'
 import Jackpot from '../components/Jackpot'
 
 class MainJackpot extends React.Component {
@@ -13,14 +14,17 @@ class MainJackpot extends React.Component {
 
   render() {
     return (
-      <Jackpot
+      <Flex
         width={1}
         css={{
           height: '100%',
           overflow: 'hidden',
           // overflowY: 'auto',
         }}
-      />
+      >
+        <Jackpot />
+        <Chat />
+      </Flex>
     )
   }
 }

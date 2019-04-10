@@ -3,25 +3,6 @@ import { Flex, Box } from 'rebass'
 
 import FooterLink from '../primitives/Footer/Link'
 
-const styles = {
-  container: {
-    color: 'white',
-    display: 'flex',
-    position: 'fixed',
-    width: '100%',
-    bottom: 0,
-    background: '#221d2e',
-    alignItems: 'center',
-    padding: '10px',
-  },
-  left: {
-    flex: 1,
-  },
-  right: {
-    display: 'flex',
-  },
-}
-
 class Footer extends React.Component {
   constructor(props) {
     super(props)

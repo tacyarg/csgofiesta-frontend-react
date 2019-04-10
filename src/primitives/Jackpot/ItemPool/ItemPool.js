@@ -6,7 +6,8 @@ import GameItem from './GameItem'
 
 const ItemPool = ({ items }) => (
   <Flex
-    px={3}
+    // width={1}
+    // px={3}
     alignItems="stretch"
     flexWrap="wrap"
     alignContent="start"
@@ -15,6 +16,7 @@ const ItemPool = ({ items }) => (
       maxHeight: '100%',
       overflow: 'hidden',
       overflowY: 'auto',
+      // border: '1px solid'
     }}
   >
     {items.map((item, index) => (

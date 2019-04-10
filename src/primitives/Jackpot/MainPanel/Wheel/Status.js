@@ -10,7 +10,6 @@ const Status = ({ label = 'rolling in', value = '0.00s' }) => (
       transform: 'translate(-50%, -50%)',
       textAlign: 'center',
       fontWeight: 'bold',
-      // lineHeight: 1
     }}
   >
     <Text

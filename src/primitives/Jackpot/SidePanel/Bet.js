@@ -1,9 +1,7 @@
 import React from 'react'
 import { Box, Image, Flex, Text } from 'rebass'
 
-const Avatar = props => (
-  <Image width={48} height={48} borderRadius={9999} {...props} />
-)
+import Avatar from '../../Avatar'
 
 export default bet => (
   <Flex alignItems="center">

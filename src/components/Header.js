@@ -40,9 +40,9 @@ class Header extends React.Component {
         <Logo />
         {routes.map(link => (
           <NavBtn
-            {...link}
-            key={link.text}
+            key={link.path}
             isActive={link.path === this.props.location.pathname}
+            {...link}
           />
         ))}
         <Box mx="auto" />

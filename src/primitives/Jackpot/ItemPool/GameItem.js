@@ -12,15 +12,15 @@ const GameItem = ({
 }) => {
   return (
     <Flex
-      width={140}
-      height={140}
-      p={2}
       m={1}
       flexDirection="column"
       alignItems="center"
       css={{
-        maxHeight: 140,
-        maxWidth: 140,
+        minHeight: 120,
+        minWidth: 120,
+        maxWidth: 'calc(8VW - 4px)',
+        maxHeight: 'calc(8VW - 4px)',
+
         overflow: 'hidden',
         position: 'relative',
         borderBottom: '2px solid #e04e3f',
@@ -28,13 +28,15 @@ const GameItem = ({
         background: `linear-gradient(0deg, rgba(${colorFaded}, 0.20), transparent)`,
         fontSize: '12px',
         // flexGrow: 1,
-        flexShrink: 0,
+        // flexShrink: 0,
+        // flexBasis: 1
+        // flexBasis: 'calc(10% - 8px)'
       }}
       justifyContent="center"
-      flexGrow={1}
-      flexShrink={0}
     >
       <Image
+        // width={140}
+        // height={140}
         src={image}
         css={{
           // height: '100%',
