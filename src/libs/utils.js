@@ -29,8 +29,6 @@ exports.parseItem = item => {
   data.condition = regex[5]
   data.stattrak = regex[2] ? true : false
 
-  console.log(data)
-
   return data
 }
 

@@ -31,7 +31,7 @@ class Wheel extends React.Component {
         labels: ['Red', 'Green', 'Yellow'],
         datasets: [
           {
-            borderWidth: 10,
+            borderWidth: 5,
             data: [300, 50, 100],
             backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
             // hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
@@ -45,10 +45,14 @@ class Wheel extends React.Component {
     this.mapBets()
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if(prevProps.bets.length === this.props.bets.length) return false
+    console.log(this.props.bets.length)
+    this.mapBets(this.props.bets)
+  }
+
   mapBets() {
     const { bets = [] } = this.props
-
-    console.log(bets)
 
     const names = bets.map(bet => bet.player.name)
     const values = bets.map(bet => bet.value)

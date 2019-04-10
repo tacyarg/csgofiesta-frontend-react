@@ -12,8 +12,8 @@ const ItemPool = ({ items }) => (
     alignContent="start"
     justifyContent="center"
   >
-    {items.map(item => (
-      <GameItem key={item.id} {...parseItem(item)} />
+    {items.map((item, index) => (
+      <GameItem key={item.id+index} {...parseItem(item)} />
     ))}
   </Flex>
 )

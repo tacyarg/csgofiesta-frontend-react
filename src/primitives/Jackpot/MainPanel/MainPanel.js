@@ -23,7 +23,7 @@ const generateRoundStats = jackpot => {
       icon: AmigosIcon,
     },
     {
-      value: jackpot.players.length,
+      value: jackpot.items.length,
       label: 'tacos placed',
       icon: TacosIcon,
     },
@@ -42,7 +42,7 @@ export default props => (
     css={{
       background: 'rgba(0,0,0,0.25)',
     }}
-    flex={1}
+    // flex={1}
     alignItems="center"
     flexWrap="wrap"
     justifyContent="center"

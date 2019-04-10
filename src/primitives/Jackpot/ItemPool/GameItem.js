@@ -10,7 +10,6 @@ const GameItem = ({
   color,
   colorFaded,
 }) => {
-  console.log(color)
   return (
     <Flex
       width={140}
@@ -41,7 +40,7 @@ const GameItem = ({
           // height: '100%',
           width: '100%',
           position: 'relative',
-          filter: 'saturate(125%) drop-shadow(0 0 8px black)',
+          // filter: 'saturate(125%) drop-shadow(0 0 8px black)',
           // filter: 'drop-shadow(0 5px 2px rgba(0, 0, 0, 0.5)) saturate(123%) contrast(110%)',
         }}
       />
