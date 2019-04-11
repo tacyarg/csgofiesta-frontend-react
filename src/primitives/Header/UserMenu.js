@@ -1,25 +1,98 @@
 import React from 'react'
-import Box from 'ui-box'
+import { Flex, Box, Text } from 'rebass'
+import { FaChevronDown, FaUserCog, FaUser, FaWarehouse } from 'react-icons/fa'
 
-const styles = {
-  container: {
-    display: 'flex',
-    padding: 20,
-  },
-  btn: {
-    // fontWeight: 'bold',
-    fontSize: '1.2em',
-    display: 'flex',
-    alignItems: 'center',
-  },
+import Avatar from '../Avatar'
+
+class UserMenu extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      showMenu: false,
+    }
+  }
+
+  toggleMenu = () => {
+    this.setState({ showMenu: !this.state.showMenu })
+  }
+
+  render() {
+    const {
+      avatar = 'https://steamcdn-a.opskins.media/steamcommunity/public/images/avatars/41/4137b9b5854d565b229e5912bd373356fe8f5c87_full.jpg',
+      username = 'taycarg',
+    } = this.props
+    const { showMenu } = this.state
+    return (
+      <Flex
+        mx={4}
+        p={2}
+        css={{
+          cursor: 'pointer',
+          position: 'relative',
+        }}
+        onMouseEnter={this.toggleMenu}
+        onMouseLeave={this.toggleMenu}
+        flexDirection="column"
+      >
+        <Flex alignItems="center">
+          <Avatar src={avatar} mx={2} />
+          <Text mx={2} fontWeight="bold">
+            {username}
+          </Text>
+          <Box mx={2} as={FaChevronDown} />
+        </Flex>
+        {showMenu ? <Menu /> : null}
+      </Flex>
+    )
+  }
 }
 
-const NavBtn = props => (
-  <Box {...styles.container} className="container">
-    <Box {...styles.btn}>
-      {props.username}
-    </Box>
-  </Box>
+const Menu = ({
+  entries = [
+    {
+      icon: FaUser,
+      label: 'Profile',
+      path: '/profile',
+    },
+    {
+      icon: FaUserCog,
+      label: 'Settings',
+      path: '/profile',
+    },
+    {
+      icon: FaWarehouse,
+      label: 'Backpack',
+      path: '/profile',
+    },
+  ],
+}) => (
+  <Flex
+    flexDirection="column"
+    width={1}
+    css={{
+      top: '100%',
+      position: 'absolute',
+      borderRadius: 5,
+      backgroundColor: '#1f1b2b',
+      boxShadow: '1px 2px 1px rgba(0, 0, 0, 0.25)',
+    }}
+  >
+    {entries.map(row => (
+      <Flex
+        p={2}
+        css={{
+          ':hover': {
+            borderRadius: 5,
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+          },
+        }}
+      >
+        <Box as={row.icon} mx={2} />
+        <Text>{row.label}</Text>
+      </Flex>
+    ))}
+  </Flex>
 )
 
-export default NavBtn
+export default UserMenu
