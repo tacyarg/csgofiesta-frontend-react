@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex } from 'rebass'
+import { Flex, Box } from 'rebass'
 
 import fakeJackpot from '../libs/fakeJackpot'
 
@@ -15,20 +15,25 @@ class Jackpot extends React.Component {
     this.state = fakeJackpot
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
     return (
-      <Flex {...this.props} flexWrap="wrap">
+      <Flex
+        p={3}
+        {...this.props}
+        // flexWrap="wrap"
+      >
         <SidePanel {...this.state} />
+        <Box mx={2} />
         <Flex
-          p={3}
           flex={1}
           flexDirection="column"
           css={{
+            minWidth: 300,
             height: '100%',
             overflow: 'hidden',
+            // overflowY: 'auto'
           }}
         >
           <MainPanel {...this.state} />

@@ -10,6 +10,7 @@ const InfoPanel = ({
     p={3}
     {...props}
     css={{
+      // borderRadius: 5,
       borderLeft: `2px solid ${accentColor}`,
       background: `linear-gradient(45deg, ${backgroundColor},#1a1624)`,
     }}

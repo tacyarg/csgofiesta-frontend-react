@@ -77,6 +77,7 @@ class Wheel extends React.Component {
     const { status, ...props } = this.props
     return (
       <Box
+        p={4}
         {...props}
         css={{
           width: '20vw',

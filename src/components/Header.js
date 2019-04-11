@@ -36,7 +36,10 @@ class Header extends React.Component {
     const { routes } = this.state
 
     return (
-      <Flex backgroundColor="#221d2e" alignItems="center" p={10}>
+      <Flex backgroundColor="#221d2e" alignItems="center" p={10} css={{
+        boxShadow: '1px 2px 1px rgba(0, 0, 0, 0.25)',
+        zIndex: 999
+      }}>
         <Logo />
         {routes.map(link => (
           <NavBtn

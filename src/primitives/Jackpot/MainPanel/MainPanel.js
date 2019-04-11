@@ -38,11 +38,10 @@ const generateRoundStats = jackpot => {
 export default props => (
   <Flex
     // m={3}
-    p={3}
+    p={2}
     css={{
       background: 'rgba(0,0,0,0.25)',
     }}
-    // flex={1}
     alignItems="center"
     flexWrap="wrap"
     justifyContent="center"

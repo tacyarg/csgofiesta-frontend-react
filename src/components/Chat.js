@@ -60,7 +60,7 @@ class Chat extends React.Component {
           // border: '1px solid',
         }}
       >
-        <Header roomid={id} />
+        {/* <Header roomid={id} /> */}
         <Room messages={messages} />
         <InputBox onSubmit={this.sendMessage} />
       </Flex>

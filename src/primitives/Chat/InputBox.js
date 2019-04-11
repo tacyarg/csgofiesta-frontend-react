@@ -51,7 +51,7 @@ class InputBox extends React.Component {
             resize: 'none',
             background: 'transparent',
             outline: 'none',
-            fontSize: '1.2em',
+            fontSize: '1em',
           }}
         />
         <Box

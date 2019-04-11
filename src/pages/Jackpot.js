@@ -20,6 +20,7 @@ class MainJackpot extends React.Component {
           height: '100%',
           overflow: 'hidden',
           // overflowY: 'auto',
+          // justifyContent: "flex-end"
         }}
       >
         <Jackpot />

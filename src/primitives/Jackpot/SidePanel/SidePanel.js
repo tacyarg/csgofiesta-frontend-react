@@ -7,8 +7,7 @@ import Bet from './Bet'
 const SidePanel = ({ config, bets, players, value, ...props }) => (
   <Flex
     {...props}
-    p={3}
-    flex={1}
+    width={1}
     flexDirection="column"
     css={{
       height: '100%',
