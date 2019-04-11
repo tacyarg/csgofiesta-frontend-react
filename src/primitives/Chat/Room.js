@@ -27,6 +27,7 @@ class Room extends React.Component {
     const { messages = [] } = this.props
     return (
       <Flex
+        px={2}
         onMouseEnter={e => {
           this.setState({ pauseScroll: true })
         }}
