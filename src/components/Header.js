@@ -59,7 +59,7 @@ class Header extends React.Component {
         {user ? (
           <UserMenu {...user} />
         ) : (
-          <PrimaryButton onClick={chipsgg.actions.loginOpskins}>
+          <PrimaryButton mx={4} onClick={chipsgg.actions.loginOpskins}>
             Opskins Login
           </PrimaryButton>
         )}
