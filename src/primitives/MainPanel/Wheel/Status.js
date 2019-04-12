@@ -4,7 +4,7 @@ import { Box, Text } from 'rebass'
 class Status extends React.Component {
   render() {
     const { state = 'rolling in', timeleft = '0.00', ...props } = this.props
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <Box
         css={{

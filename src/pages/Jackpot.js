@@ -36,7 +36,11 @@ class MainJackpot extends React.Component {
           height: '100%',
         }}
       >
-        <Jackpot jackpot={jackpot} />
+        <Jackpot
+          jackpot={jackpot}
+          onRequest={items => chipsgg.actions.joinJackpot({ items })}
+          onRefresh={chipsgg.actions.scanMyVgoInventoryByOpskinsId}
+        />
         <Chat
           chat={chat}
           sendMessage={message => chipsgg.actions.chat({ message })}

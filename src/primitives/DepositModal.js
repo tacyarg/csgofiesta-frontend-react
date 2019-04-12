@@ -18,6 +18,10 @@ class DepositModal extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.onRefresh()
+  }
+
   onRefresh = () => {
     const { onRefresh } = this.props
     this.toggleLoading()

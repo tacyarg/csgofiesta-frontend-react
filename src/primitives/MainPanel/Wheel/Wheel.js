@@ -48,7 +48,7 @@ class Wheel extends React.Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     const {bets} = this.props
     if (prevProps.bets.length === bets.length) return false
-    console.log(bets.length)
+    // console.log(bets.length)
     this.mapBets(bets)
   }
 

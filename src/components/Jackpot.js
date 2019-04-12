@@ -11,11 +11,11 @@ import lodash from 'lodash'
 
 class Jackpot extends React.Component {
   render() {
-    const { jackpot = fakeJackpot } = this.props
+    const { jackpot = fakeJackpot, ...props } = this.props
 
     return (
       <Flex width={1} p={3}>
-        <SidePanel {...jackpot} />
+        <SidePanel {...jackpot} {...props}/>
         <Box mx={1} />
         <Flex flexDirection="column" width={1}> 
           <MainPanel {...jackpot} />
