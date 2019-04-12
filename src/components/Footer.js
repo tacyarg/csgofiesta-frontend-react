@@ -3,6 +3,9 @@ import { Flex, Box } from 'rebass'
 
 import FooterLink from '../primitives/Footer/Link'
 
+import { FaTwitter, FaDiscord, FaDice } from 'react-icons/fa'
+
+
 class Footer extends React.Component {
   constructor(props) {
     super(props)
@@ -10,17 +13,17 @@ class Footer extends React.Component {
       routes: [
         {
           link: '/',
-          icon: '',
+          icon: FaDice,
           text: 'Provable Fair',
         },
         {
           link: '/',
-          icon: '',
+          icon: FaTwitter,
           text: 'Twitter',
         },
         {
           link: '/',
-          icon: '',
+          icon: FaDiscord,
           text: 'Discord',
         },
       ],
