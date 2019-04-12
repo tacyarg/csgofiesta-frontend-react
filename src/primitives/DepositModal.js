@@ -139,7 +139,7 @@ class DepositModal extends React.Component {
               />
             )}
             <Box my="auto" />
-            <Flex p={2} css={{}}>
+            <Flex p={2}>
               <PrimaryButton
                 // disabled={!this.canRequest}
                 loading={requesting}

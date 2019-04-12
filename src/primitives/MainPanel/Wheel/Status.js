@@ -3,7 +3,7 @@ import { Box, Text } from 'rebass'
 
 class Status extends React.Component {
   render() {
-    const { state = 'rolling in', timeleft = '0.00', ...props } = this.props
+    const { state = 'rolling in', timeleft = 0, ...props } = this.props
     // console.log(this.props)
     return (
       <Box
@@ -24,7 +24,7 @@ class Status extends React.Component {
         >
           {state}
         </Text>
-        <Text fontSize="2em">{timeleft.toFixed(2)}s</Text>
+        <Text fontSize="2em">{parseInt(timeleft / 1000)}s</Text>
       </Box>
     )
   }

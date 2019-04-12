@@ -22,6 +22,7 @@ class MainJackpot extends React.Component {
     })
 
     this.props.chipsgg.state.on('jackpot', jackpot => {
+      if(!jackpot) return
       this.setState({ jackpot })
     })
   }
