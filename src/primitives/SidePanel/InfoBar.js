@@ -45,6 +45,6 @@ export default ({ config, ...props }) => (
       <Rules {...config} />
     </Flex>
     <Box mx="auto" />
-    <DepositModal {...props} />
+    <DepositModal {...config} {...props} />
   </InfoPanel>
 )

@@ -8,7 +8,7 @@ export default async baseURL => {
     })
 
     const { data } = await api('/actions/listActions')
-    console.log(data)
+    // console.log(data)
 
     return data.reduce((memo, action) => {
         return {

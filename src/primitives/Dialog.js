@@ -35,7 +35,7 @@ class DepositModal extends React.Component {
   componentDidUpdate(oldProps) {
     const { show } = this.state
     if (oldProps.show !== this.props.show) {
-      console.log('should close')
+      // console.log('should close')
       this.setState({ show: !show, canClose: true })
     }
   }

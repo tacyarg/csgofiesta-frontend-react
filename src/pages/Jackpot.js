@@ -8,13 +8,14 @@ class MainJackpot extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      chat: props.chipsgg.state('chats')[0],
+      // TODO: FIX THIS...
+      chat: props.chipsgg.state('chat') || props.chipsgg.state('chats')[0],
       jackpot: props.chipsgg.state('jackpot'),
     }
   }
 
   componentDidMount() {
-    console.log(this.props.chipsgg.state())
+    // console.log(this.props.chipsgg.state())
     this.props.chipsgg.state.on('chat', chat => {
       if (!chat.messages) chat.messages = []
       this.setState({ chat })
@@ -38,7 +39,9 @@ class MainJackpot extends React.Component {
       >
         <Jackpot
           jackpot={jackpot}
-          onRequest={itemids => chipsgg.actions.depositAndJoinJackpot({ itemids })}
+          onRequest={itemids =>
+            chipsgg.actions.depositAndJoinJackpot({ itemids })
+          }
           onRefresh={chipsgg.actions.scanMyVgoInventoryByOpskinsId}
         />
         <Chat

@@ -69,7 +69,7 @@ class DepositModal extends React.Component {
   onSelect = item => {
     const { total, selectedItems } = this.state
 
-    console.log(item.selected, item.id)
+    // console.log(item.selected, item.id)
 
     if (item.selected) {
       this.setState({
@@ -85,6 +85,15 @@ class DepositModal extends React.Component {
         selectedItems,
       })
     }
+  }
+
+  canRequest = () => {
+    const { minValue = 0, maxItems = 1000 } = this.props
+    const { total, selectedItems } = this.state
+
+    console.log(total, minValue, selectedItems.length, maxItems)
+
+    return total > minValue && selectedItems.length < maxItems
   }
 
   render() {
@@ -132,6 +141,7 @@ class DepositModal extends React.Component {
             <Box my="auto" />
             <Flex p={2} css={{}}>
               <PrimaryButton
+                // disabled={!this.canRequest}
                 loading={requesting}
                 flex={1}
                 onClick={async e => {

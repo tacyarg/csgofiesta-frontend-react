@@ -3,10 +3,18 @@ import { Flex, Button } from 'rebass'
 
 import Spinner from './Spinner'
 
+const style = {
+  outline: 'none',
+  boxShadow: '1px 2px 1px rgba(0, 0, 0, 0.25)',
+  border: '1px solid rgba(0, 0, 0, 0.25)',
+  transition: 'all 0.3s ease 0s',
+}
+
 const PrimaryButton = ({
   bg = 'rgba(238, 9, 121, 0.8)',
   loading,
   onClick,
+  disabled,
   ...props
 }) => (
   <Flex
@@ -17,18 +25,22 @@ const PrimaryButton = ({
     bg={bg}
     {...props}
     css={{
-      outline: 'none',
-      boxShadow: '1px 2px 1px rgba(0, 0, 0, 0.25)',
-      border: '1px solid rgba(0, 0, 0, 0.25)',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease 0s',
-      '&:hover': {
-        opacity: 0.8,
-        // boxShadow: '1px 2px 1px rgba(0, 0, 0, 0.1)',
-      },
-      '&:active': {
-        boxShadow: '1px 2px 1px rgba(0, 0, 0, 0)',
-      },
+      ...style,
+      ...(!disabled
+        ? {
+            cursor: 'pointer',
+            '&:hover': {
+              opacity: 0.8,
+              // boxShadow: '1px 2px 1px rgba(0, 0, 0, 0.1)',
+            },
+            '&:active': {
+              boxShadow: '1px 2px 1px rgba(0, 0, 0, 0)',
+            },
+          }
+        : {
+            opacity: 0.5,
+            cursor: 'not-allowed',
+          }),
     }}
   >
     {loading ? <Spinner /> : props.children}
