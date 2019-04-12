@@ -1,6 +1,7 @@
 import React from 'react'
 import { Flex, Box, Text, Image } from 'rebass'
 import { parseItem } from '../../libs/utils'
+import { sortBy } from 'lodash'
 
 import GameItem from './GameItem'
 
@@ -22,12 +23,8 @@ class ItemPool extends React.Component {
           // border: '1px solid'
         }}
       >
-        {items.map((item, index) => (
-          <GameItem
-            key={item.id + index}
-            {...parseItem(item)}
-            {...props}
-          />
+        {sortBy(items, 'price').reverse().map((item, index) => (
+          <GameItem key={item.id + index} {...parseItem(item)} {...props} />
         ))}
       </Flex>
     )
