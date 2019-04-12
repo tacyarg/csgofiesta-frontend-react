@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Image, Flex, Text } from 'rebass'
 
-import Avatar from '../../Avatar'
+import Avatar from '../Avatar'
 
 export default bet => (
   <Flex alignItems="center">

@@ -17,7 +17,6 @@ const Icon = props => <Image width={40} {...props} />
 
 const Stat = ({ type, value, label, icon }) => (
   <Flex
-    // width={1}
     m={2}
     p={15}
     alignItems="center"
@@ -48,7 +47,7 @@ const Stat = ({ type, value, label, icon }) => (
 )
 
 export default ({ stats = [], ...props }) => (
-  <Flex {...props}flexDirection="column">
+  <Flex {...props} flexDirection="column" >
     {stats.map(row => (
       <Stat key={row.label} {...row} />
     ))}

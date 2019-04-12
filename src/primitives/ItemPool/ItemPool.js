@@ -1,6 +1,6 @@
 import React from 'react'
 import { Flex, Box, Text, Image } from 'rebass'
-import { parseItem } from '../../../libs/utils'
+import { parseItem } from '../../libs/utils'
 
 import GameItem from './GameItem'
 

@@ -8,9 +8,9 @@ import Footer from './components/Footer'
 import NotFound from './pages/NotFound'
 import Jackpot from './pages/Jackpot'
 
-const App = ({ actions, ...props }) => (
+const App = ({ chipsgg, ...props }) => (
   <Flex flexDirection="column" width={1} css={{ height: '100vh', overflow: 'hidden' }}>
-    <Header {...props} />
+    <Header chipsgg={chipsgg} {...props} />
 
     <Switch>
       <Redirect exact from="/" to="/jackpot" />
@@ -18,7 +18,7 @@ const App = ({ actions, ...props }) => (
       <Route
         path="/jackpot"
         render={props => {
-          return <Jackpot actions={actions} />
+          return <Jackpot chipsgg={chipsgg} />
         }}
       />
 

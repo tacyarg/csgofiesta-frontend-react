@@ -10,7 +10,7 @@ class Room extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(this.scrollToBottom, 1000)
+    setInterval(this.scrollToBottom, 250)
   }
 
   componentDidUpdate() {
@@ -20,7 +20,8 @@ class Room extends React.Component {
   scrollToBottom = () => {
     const { pauseScroll } = this.state
     if (pauseScroll) return
-    this.el.scrollIntoView({ behavior: 'smooth' })
+    // this.el.scrollIntoView({ behavior: 'smooth' })
+    this.el.scrollIntoView()
   }
 
   render() {

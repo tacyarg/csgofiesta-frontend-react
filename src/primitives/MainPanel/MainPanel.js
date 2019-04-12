@@ -37,7 +37,6 @@ const generateRoundStats = jackpot => {
 
 export default props => (
   <Flex
-    // m={3}
     p={2}
     css={{
       background: 'rgba(0,0,0,0.25)',
@@ -47,7 +46,6 @@ export default props => (
     justifyContent="center"
   >
     <Wheel
-      mx="auto"
       bets={props.bets.map(bet => {
         bet.player = props.players.find(player => player.id === bet.userid)
         return bet

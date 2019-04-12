@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Flex, Text } from 'rebass'
 
 import InfoPanel from '../InfoPanel'
-import PrimaryButton from '../../PrimaryButton'
+import DepositModal from '../DepositModal'
 
 function parseType(type, value) {
   switch (type) {
@@ -21,7 +21,7 @@ const Rule = ({ label, value, type }) => (
     px={1}
     css={{
       opacity: 0.7,
-      whiteSpace: 'nowrap'
+      whiteSpace: 'nowrap',
     }}
   >
     <u>{label}:</u> {parseType(type, value)}
@@ -44,7 +44,7 @@ export default ({ config }) => (
       </Text>
       <Rules {...config} />
     </Flex>
-    <Box mx="auto"/>
-    <PrimaryButton>Deposit</PrimaryButton>
+    <Box mx="auto" />
+    <DepositModal/>
   </InfoPanel>
 )

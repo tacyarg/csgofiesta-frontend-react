@@ -65,7 +65,7 @@ class Wheel extends React.Component {
           {
             data: values,
             backgroundColor: colors,
-            // hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+            // hoverBackgroundColor: colors,
           },
         ],
       },
@@ -77,14 +77,15 @@ class Wheel extends React.Component {
     const { status, ...props } = this.props
     return (
       <Box
-        p={4}
-        {...props}
+        mx="auto"
+        // p={5}
+        width={2 / 3}
         css={{
-          width: '20vw',
           position: 'relative',
+          // border: '1px solid',
         }}
       >
-        <Doughnut height="100%" width="100%" data={data} options={options} />
+        <Box as={Doughnut} data={data} options={options} />
         <Status {...status} />
       </Box>
     )

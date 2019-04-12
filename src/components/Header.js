@@ -1,17 +1,18 @@
 import React from 'react'
-import { Flex, Box } from 'rebass'
+import { Flex, Box, Button } from 'rebass'
 
 import Logo from '../primitives/Header/Logo'
 import NavBtn from '../primitives/Header/NavButton'
 import UserMenu from '../primitives/Header/UserMenu'
 
+import PrimaryButton from '../primitives/PrimaryButton'
+
 class Header extends React.Component {
   constructor(props) {
     super(props)
 
-    console.log(this.props.location.pathname)
-
     this.state = {
+      user: props.chipsgg.userState ? props.chipsgg.userState('me') : null,
       routes: [
         {
           path: '/jackpot',
@@ -33,13 +34,19 @@ class Header extends React.Component {
   }
 
   render() {
-    const { routes } = this.state
+    const { routes, user } = this.state
+    const { chipsgg } = this.props
 
     return (
-      <Flex backgroundColor="#221d2e" alignItems="center" p={10} css={{
-        boxShadow: '1px 2px 1px rgba(0, 0, 0, 0.25)',
-        zIndex: 999
-      }}>
+      <Flex
+        backgroundColor="#221d2e"
+        alignItems="center"
+        p={10}
+        css={{
+          boxShadow: '1px 2px 1px rgba(0, 0, 0, 0.25)',
+          zIndex: 999,
+        }}
+      >
         <Logo />
         {routes.map(link => (
           <NavBtn
@@ -49,7 +56,13 @@ class Header extends React.Component {
           />
         ))}
         <Box mx="auto" />
-        <UserMenu username="tacyarg" />
+        {user ? (
+          <UserMenu {...user} />
+        ) : (
+          <PrimaryButton onClick={chipsgg.actions.loginOpskins}>
+            Opskins Login
+          </PrimaryButton>
+        )}
       </Flex>
     )
   }

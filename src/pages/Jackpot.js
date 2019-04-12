@@ -7,24 +7,40 @@ import Jackpot from '../components/Jackpot'
 class MainJackpot extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      chat: props.chipsgg.state('chat'),
+      jackpot: props.chipsgg.state('jackpot'),
+    }
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(this.props.chipsgg.state())
+    this.props.chipsgg.state.on('chat', chat => {
+      if (!chat.messages) chat.messages = []
+      this.setState({ chat })
+    })
+
+    this.props.chipsgg.state.on('jackpot', jackpot => {
+      this.setState({ jackpot })
+    })
+  }
 
   render() {
+    const { chat, jackpot } = this.state
+    const { chipsgg } = this.props
+
     return (
       <Flex
         width={1}
         css={{
           height: '100%',
-          overflow: 'hidden',
-          // overflowY: 'auto',
-          // justifyContent: "flex-end"
         }}
       >
-        <Jackpot />
-        <Chat />
+        <Jackpot jackpot={jackpot} />
+        <Chat
+          chat={chat}
+          sendMessage={message => chipsgg.actions.chat({ message })}
+        />
       </Flex>
     )
   }

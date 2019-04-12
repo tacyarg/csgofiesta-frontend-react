@@ -40,3 +40,12 @@ exports.hexToRGB = hex => {
 
   return arrByte[1] + ',' + arrByte[2] + ',' + arrByte[3]
 }
+
+
+exports.animationEasing = {
+  standard: `cubic-bezier(0.4, 0.0, 0.2, 1)`,
+  deceleration: `cubic-bezier(0.0, 0.0, 0.2, 1)`,
+  acceleration: `cubic-bezier(0.4, 0.0, 1, 1)`,
+  sharp: `cubic-bezier(0.4, 0.0, 0.6, 1)`,
+  spring: `cubic-bezier(0.175, 0.885, 0.320, 1.175)`
+}

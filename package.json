@@ -2,6 +2,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "chart.js": "^2.8.0",
+    "chipsgg-client": "^1.2.1",
     "evergreen-ui": "^4.15.0",
     "lodash": "^4.17.11",
     "react": "^15.0.0 || ^16.0.0",

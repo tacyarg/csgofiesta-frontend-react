@@ -11,16 +11,16 @@ const SidePanel = ({ config, bets, players, value, ...props }) => (
     flexDirection="column"
     css={{
       height: '100%',
-      maxWidth: 600,
+      maxWidth: 540,
     }}
   >
-    <InfoBar config={config} />
+    <InfoBar config={config}/>
     <Flex
       flex={1}
       flexDirection="column"
       css={{
         height: '100%',
-        maxWidth: 600,
+        maxWidth: 540,
         overflowY: 'auto',
       }}
     >

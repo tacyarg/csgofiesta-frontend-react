@@ -13,6 +13,10 @@ class UserMenu extends React.Component {
     }
   }
 
+  componentDidMount(){
+    console.log(this.props)
+  }
+
   toggleMenu = () => {
     this.setState({ showMenu: !this.state.showMenu })
   }
@@ -80,6 +84,7 @@ const Menu = ({
   >
     {entries.map(row => (
       <Flex
+        key={row.label}
         p={2}
         css={{
           ':hover': {
