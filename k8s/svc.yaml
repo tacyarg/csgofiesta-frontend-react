@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: fiesta-react-svc
+spec:
+  selector:
+    name: fiesta-react
+  type: LoadBalancer
+  ports:
+  - name: web
+    protocol: TCP
+    port: 80

@@ -1,0 +1,11 @@
+apiVersion: 'v1'
+kind: Pod
+metadata:
+  name: fiesta-react
+  labels:
+    name: fiesta-react
+spec:
+  containers:
+    - name: fiesta-react
+      image: gcr.io/chipsgg-184323/fiesta-react
+      imagePullPolicy: Always
