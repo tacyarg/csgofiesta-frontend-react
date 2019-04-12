@@ -50,6 +50,7 @@ export default props => (
         bet.player = props.players.find(player => player.id === bet.userid)
         return bet
       })}
+      {...props}
     />
     <RoundStats stats={generateRoundStats(props)} />
   </Flex>

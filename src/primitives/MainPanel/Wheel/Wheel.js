@@ -46,13 +46,29 @@ class Wheel extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevProps.bets.length === this.props.bets.length) return false
-    console.log(this.props.bets.length)
-    this.mapBets(this.props.bets)
+    const {bets} = this.props
+    if (prevProps.bets.length === bets.length) return false
+    console.log(bets.length)
+    this.mapBets(bets)
   }
 
   mapBets() {
     const { bets = [] } = this.props
+
+    if(bets.length < 1) {
+      return this.setState({
+        data: {
+          labels: ['n/a'],
+          datasets: [
+            {
+              data: [1],
+              backgroundColor: ['rgba(255,255,255,0.1)'],
+              // hoverBackgroundColor: colors,
+            },
+          ],
+        },
+      })
+    }
 
     const names = bets.map(bet => bet.player.name)
     const values = bets.map(bet => bet.value)
@@ -74,7 +90,6 @@ class Wheel extends React.Component {
 
   render() {
     const { options, data } = this.state
-    const { status, ...props } = this.props
     return (
       <Box
         mx="auto"
@@ -90,7 +105,7 @@ class Wheel extends React.Component {
           // width: '100%',
           // height: '100%'
         }} />
-        <Status {...status} />
+        <Status {...this.props} />
       </Box>
     )
   }
