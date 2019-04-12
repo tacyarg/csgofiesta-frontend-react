@@ -8,7 +8,7 @@ class MainJackpot extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      chat: props.chipsgg.state('chat'),
+      chat: props.chipsgg.state('chats')[0],
       jackpot: props.chipsgg.state('jackpot'),
     }
   }

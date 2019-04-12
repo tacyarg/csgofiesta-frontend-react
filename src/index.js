@@ -20,8 +20,10 @@ const main = async () => {
 
   try {
     chipsgg = await ChipsGG(
-      'http://149.28.121.92:9992',
-      'http://149.28.121.92:9993'
+      // 'http://149.28.121.92:9992',
+      // 'http://149.28.121.92:9993'
+      'https://socket.chips.gg',
+      'https://auth.chips.gg'
     )
   } catch (error) {
     console.error("FAILED TO CONNECT", error)
