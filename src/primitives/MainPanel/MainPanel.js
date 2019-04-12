@@ -4,10 +4,10 @@ import { Box, Flex } from 'rebass'
 import Wheel from './Wheel/Wheel'
 import RoundStats from './RoundStats'
 
-import AmigosIcon from '../../../assets/img/amigos.png'
-import MaracasIcon from '../../../assets/img/maracas.png'
-import SombreroIcon from '../../../assets/img/sombrero.png'
-import TacosIcon from '../../../assets/img/tacos.png'
+import AmigosIcon from '../../assets/img/amigos.png'
+import MaracasIcon from '../../assets/img/maracas.png'
+import SombreroIcon from '../../assets/img/sombrero.png'
+import TacosIcon from '../../assets/img/tacos.png'
 
 const generateRoundStats = jackpot => {
   return [

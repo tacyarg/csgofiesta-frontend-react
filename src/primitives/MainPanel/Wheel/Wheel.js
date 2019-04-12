@@ -78,14 +78,18 @@ class Wheel extends React.Component {
     return (
       <Box
         mx="auto"
+        flex={1}
         // p={5}
-        width={2 / 3}
+        // width={2 / 3}
         css={{
           position: 'relative',
           // border: '1px solid',
         }}
       >
-        <Box as={Doughnut} data={data} options={options} />
+        <Box as={Doughnut} data={data} options={options} css={{
+          // width: '100%',
+          // height: '100%'
+        }} />
         <Status {...status} />
       </Box>
     )

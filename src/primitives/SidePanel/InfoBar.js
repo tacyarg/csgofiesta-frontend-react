@@ -31,7 +31,7 @@ const Rule = ({ label, value, type }) => (
 const Rules = ({ betValueMin = 0, betValueMax = 0, betItemLimit = 0 }) => (
   <Flex flexWrap="wrap">
     <Rule label="Min. Bet" value={betValueMin} type="number" />
-    <Rule label="Max Bet" value={betValueMax} type="number" />
+    {/* <Rule label="Max Bet" value={betValueMax} type="number" /> */}
     <Rule label="Max Items" value={betItemLimit} />
   </Flex>
 )
