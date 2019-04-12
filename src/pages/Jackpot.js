@@ -38,7 +38,7 @@ class MainJackpot extends React.Component {
       >
         <Jackpot
           jackpot={jackpot}
-          onRequest={items => chipsgg.actions.joinJackpot({ items })}
+          onRequest={itemids => chipsgg.actions.joinJackpot({ itemids })}
           onRefresh={chipsgg.actions.scanMyVgoInventoryByOpskinsId}
         />
         <Chat

@@ -47,20 +47,27 @@ const GameItem = ({
         }}
       />
       <Text
+        backgroundColor="rgba(0,0,0,0.8)"
         fontWeight="bold"
         p={2}
         css={{
+          borderRadius: 5,
           position: 'absolute',
           top: 0,
           right: 0,
         }}
       >
-        ${price}
+        $
+        {Number(price).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}
       </Text>
       <Box
         width={1}
         css={{
-          backgroundColor: 'rgba(0,0,0,0.3)',
+          width: '100%',
+          backgroundColor: 'rgba(0,0,0,0.8)',
           textAlign: 'center',
           position: 'absolute',
           bottom: 0,
@@ -75,7 +82,9 @@ const GameItem = ({
           fontWeight="bold"
           css={{
             opacity: 0.8,
+            overflow: 'hidden',
             textOverflow: 'ellipsis',
+            width: '100%',
           }}
         >
           {skin || name}
@@ -84,7 +93,9 @@ const GameItem = ({
           fontWeight="bold"
           css={{
             opacity: 0.5,
+            overflow: 'hidden',
             textOverflow: 'ellipsis',
+            width: '100%',
           }}
         >
           {condition}

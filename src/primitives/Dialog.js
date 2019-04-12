@@ -85,7 +85,12 @@ class DepositModal extends React.Component {
                 <Box mx="auto" />
                 <Box as={FaTimes} cursor="pointer" onClick={this.toggleShow} />
               </Flex>
-              {children}
+              {typeof children === 'function'
+                ? children({
+                    state: this.state,
+                    close: () => this.setState({ show: false, canClose: true }),
+                  })
+                : children}
             </Flex>
           </Overlay>
         ) : null}

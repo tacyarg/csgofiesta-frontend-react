@@ -14,7 +14,8 @@ class DepositModal extends React.Component {
 
     this.state = {
       loading: false,
-      requesting: false
+      requesting: false,
+      items: [],
     }
   }
 
@@ -27,7 +28,10 @@ class DepositModal extends React.Component {
     this.toggleLoading()
 
     if (onRefresh) {
-      return onRefresh()
+      return onRefresh().then(items => {
+        this.setState({ items })
+        this.toggleLoading()
+      })
     }
 
     setTimeout(() => {
@@ -39,12 +43,13 @@ class DepositModal extends React.Component {
     this.setState({ loading: !this.state.loading })
   }
 
-  onRequest = () => {
+  onRequest = async () => {
+    const { items } = this.state
     const { onRequest } = this.props
     this.toggleRequesting()
 
     if (onRequest) {
-      return onRequest()
+      return onRequest(items).catch(this.toggleRequesting)
     }
 
     setTimeout(() => {
@@ -57,55 +62,62 @@ class DepositModal extends React.Component {
   }
 
   render() {
-    const { loading, requesting, show } = this.state
+    const { loading, requesting, items } = this.state
     return (
       <Dialog title="Deposit" buttonText="Deposit">
-        <Flex
-          // justifyContent="center"
-          // alignItems="center"
-          css={{
-            height: '100%',
-            // border: '1px solid',
-          }}
-          flexDirection="column"
-        >
-          {loading ? (
-            <Flex
-              alignItems="center"
-              justifyContent="center"
-              css={{ height: '100%' }}
-            >
-              <Spinner fontSize="2em" />
+        {({ state, close }) => (
+          <Flex
+            // justifyContent="center"
+            // alignItems="center"
+            css={{
+              height: '100%',
+              // border: '1px solid',
+            }}
+            flexDirection="column"
+          >
+            {loading ? (
+              <Flex
+                alignItems="center"
+                justifyContent="center"
+                css={{ height: '100%' }}
+              >
+                <Spinner fontSize="2em" />
+              </Flex>
+            ) : (
+              <ItemPool
+                items={
+                  items || [
+                    ...fakeJackpot.items,
+                    ...fakeJackpot.items,
+                    ...fakeJackpot.items,
+                  ]
+                }
+              />
+            )}
+            <Box my="auto" />
+            <Flex p={2} css={{}}>
+              <PrimaryButton
+                loading={requesting}
+                flex={1}
+                onClick={async e => {
+                  await this.onRequest()
+                  return close()
+                }}
+              >
+                Request Deposit
+              </PrimaryButton>
+              <Box mx={1} />
+              <PrimaryButton
+                onClick={this.onRefresh}
+                bg="rgba(255, 255, 255, 0.1)"
+                flex={1}
+                loading={loading}
+              >
+                Refresh Inventory
+              </PrimaryButton>
             </Flex>
-          ) : (
-            <ItemPool
-              items={[
-                ...fakeJackpot.items,
-                ...fakeJackpot.items,
-                ...fakeJackpot.items,
-              ]}
-            />
-          )}
-          <Box my="auto" />
-          <Flex p={2} css={{}}>
-            <PrimaryButton
-              loading={requesting}
-              flex={1}
-              onClick={this.onRequest}
-            >
-              Request Deposit
-            </PrimaryButton>
-            <Box mx={1} />
-            <PrimaryButton
-              onClick={this.onRefresh}
-              bg="rgba(255, 255, 255, 0.1)"
-              flex={1}
-              loading={loading}
-            >
-              Refresh Inventory
-            </PrimaryButton>
           </Flex>
-        </Flex>
+        )}
       </Dialog>
     )
   }
