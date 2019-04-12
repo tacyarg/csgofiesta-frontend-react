@@ -16,6 +16,8 @@ class DepositModal extends React.Component {
       loading: false,
       requesting: false,
       items: [],
+      selectedItems: [],
+      total: 0,
     }
   }
 
@@ -29,7 +31,7 @@ class DepositModal extends React.Component {
 
     if (onRefresh) {
       return onRefresh().then(items => {
-        this.setState({ items })
+        this.setState({ items, total: 0, selectedItems: [] })
         this.toggleLoading()
       })
     }
@@ -44,12 +46,15 @@ class DepositModal extends React.Component {
   }
 
   onRequest = async () => {
-    const { items } = this.state
+    const { selectedItems } = this.state
     const { onRequest } = this.props
     this.toggleRequesting()
 
     if (onRequest) {
-      return onRequest(items).catch(this.toggleRequesting)
+      return onRequest(selectedItems).then(() => {
+        this.toggleRequesting()
+        this.setState({ total: 0, selectedItems: [] })
+      })
     }
 
     setTimeout(() => {
@@ -61,10 +66,38 @@ class DepositModal extends React.Component {
     this.setState({ requesting: !this.state.requesting })
   }
 
+  onSelect = item => {
+    const { total, selectedItems } = this.state
+
+    console.log(item.selected, item.id)
+
+    if (item.selected) {
+      this.setState({
+        total: total + item.price,
+        selectedItems: [...selectedItems, item.id],
+      })
+    } else {
+      const index = selectedItems.findIndex(id => id === item.id)
+      selectedItems.splice(index, 1)
+
+      this.setState({
+        total: total - item.price < 0 ? 0 : total - item.price,
+        selectedItems,
+      })
+    }
+  }
+
   render() {
-    const { loading, requesting, items } = this.state
+    const { loading, requesting, items, total, selectedItems } = this.state
     return (
-      <Dialog title="Deposit" buttonText="Deposit">
+      <Dialog
+        {...this.props}
+        title={`Deposit: $${Number(total).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}`}
+        buttonText="Deposit"
+      >
         {({ state, close }) => (
           <Flex
             // justifyContent="center"
@@ -85,6 +118,8 @@ class DepositModal extends React.Component {
               </Flex>
             ) : (
               <ItemPool
+                onSelect={this.onSelect}
+                selectable={true}
                 items={
                   items || [
                     ...fakeJackpot.items,
@@ -104,7 +139,7 @@ class DepositModal extends React.Component {
                   return close()
                 }}
               >
-                Request Deposit
+                {`Deposit ${selectedItems.length}/${items.length} Items`}
               </PrimaryButton>
               <Box mx={1} />
               <PrimaryButton

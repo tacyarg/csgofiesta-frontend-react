@@ -10,7 +10,7 @@ class Room extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(this.scrollToBottom, 250)
+    // setInterval(this.scrollToBottom, 250)
   }
 
   componentDidUpdate() {
