@@ -29,14 +29,14 @@ const App = ({ chipsgg, ...props }) => (
         <Route
           path="/jackpot"
           render={props => {
-            return <Jackpot chipsgg={chipsgg} />
+            return <Jackpot chipsgg={chipsgg} {...props}/>
           }}
         />
 
         <Route
           path="/profile"
           render={props => {
-            return <Profile chipsgg={chipsgg} />
+            return <Profile chipsgg={chipsgg} {...props} />
           }}
         />
 

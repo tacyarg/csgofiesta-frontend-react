@@ -1,33 +1,34 @@
 import React from 'react'
 import { Flex, Box, Text } from 'rebass'
 import { FaCog, FaHistory, FaWarehouse, FaShoppingCart } from 'react-icons/fa'
+import { Link, NavLink } from 'react-router-dom'
 
 class SideNav extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      selected: '/settings',
+      selected: '/profile/settings',
       routes: [
         {
           label: 'Settings',
           icon: FaCog,
-          path: '/settings',
+          path: '/profile/settings',
         },
         {
           label: 'History',
           icon: FaHistory,
-          path: '/history',
+          path: '/profile/history/payouts',
         },
         {
           label: 'Backpack',
           icon: FaWarehouse,
-          path: '/history',
+          path: '/profile/backpack',
         },
         {
           label: 'Shop',
           icon: FaShoppingCart,
-          path: '/shop',
+          path: '/profile/shop',
         },
       ],
     }
@@ -38,8 +39,15 @@ class SideNav extends React.Component {
     return path === selected
   }
 
+  onSelect = path => {
+    const { onSelect } = this.props
+    if (onSelect) onSelect(path)
+    this.setState({ selected: path })
+  }
+
   render() {
     const { routes } = this.state
+    const { location } = this.props
     return (
       <Flex
         width={1}
@@ -55,6 +63,9 @@ class SideNav extends React.Component {
       >
         {routes.map(({ label, icon, path }) => (
           <Flex
+            as={NavLink}
+            to={path}
+            onClick={e => this.onSelect(path)}
             key={path + label}
             my={1}
             width={1}
@@ -62,14 +73,10 @@ class SideNav extends React.Component {
             css={{
               cursor: 'pointer',
               '&:hover': hoverStyle,
-              ...(this.isSelected(path) ? hoverStyle : null),
+              ...(location.pathname.includes(path) ? hoverStyle : null),
             }}
           >
-            <Box
-              mx={2}
-              as={icon}
-              fontSize="1.3em"
-            />
+            <Box mx={2} as={icon} fontSize="1.3em" />
             <Text fontWeight="bold">{label}</Text>
           </Flex>
         ))}

@@ -1,6 +1,12 @@
 import React from 'react'
 import { Flex, Box, Text } from 'rebass'
-import { FaChevronDown, FaUserCog, FaUser, FaWarehouse, FaShoppingCart } from 'react-icons/fa'
+import {
+  FaChevronDown,
+  FaHistory,
+  FaCog,
+  FaWarehouse,
+  FaShoppingCart,
+} from 'react-icons/fa'
 import { Link, NavLink } from 'react-router-dom'
 
 import Avatar from '../Avatar'
@@ -56,24 +62,24 @@ class UserMenu extends React.Component {
 const Menu = ({
   entries = [
     {
-      icon: FaUser,
-      label: 'Profile',
-      path: '/profile',
-    },
-    {
-      icon: FaUserCog,
       label: 'Settings',
-      path: '/settings',
+      icon: FaCog,
+      path: '/profile/settings',
     },
     {
-      icon: FaWarehouse,
+      label: 'History',
+      icon: FaHistory,
+      path: '/profile/history/payouts',
+    },
+    {
       label: 'Backpack',
-      path: '/backpack',
+      icon: FaWarehouse,
+      path: '/profile/backpack',
     },
     {
       label: 'Shop',
       icon: FaShoppingCart,
-      path: '/shop',
+      path: '/profile/shop',
     },
   ],
 }) => (
