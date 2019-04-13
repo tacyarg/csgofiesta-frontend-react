@@ -3,6 +3,8 @@ import { Flex, Box, Text } from 'rebass'
 import moment from 'moment'
 import { sortBy } from 'lodash'
 
+import ItemPool from '../../ItemPool/ItemPool'
+
 class Commands extends React.Component {
   constructor(props) {
     super(props)
@@ -26,10 +28,12 @@ class Commands extends React.Component {
     return (
       <Box css={{ height: '100%', overflow: 'hidden', overflowY: 'auto' }}>
         {list.map(cmd => {
+              console.log(cmd)
+
           return (
             <Flex
               key={cmd.id}
-              m={2}
+              m={4}
               flexDirection="column"
               backgroundColor="rgba(27, 23, 37, 0.5)"
               css={{
@@ -40,7 +44,10 @@ class Commands extends React.Component {
               <Flex
                 p={2}
                 backgroundColor="rgba(27, 23, 37, 0.5)"
-                css={{ borderBottom: '1px solid rgba(0, 0, 0, 0.25)' }}
+                css={{
+                  borderBottom: '1px solid rgba(0, 0, 0, 0.25)',
+                  borderRadius: 5,
+                }}
               >
                 <Text>{cmd.id}</Text>
                 <Box mx="auto" />
@@ -52,7 +59,7 @@ class Commands extends React.Component {
                   opacity: 0.7,
                 }}
               >
-              <Flex p={1}>
+                <Flex p={1}>
                   <Text fontWeight="bold">GAME:</Text>
                   <Box mx={1} />
                   {cmd.game}
@@ -62,11 +69,15 @@ class Commands extends React.Component {
                   <Box mx={1} />
                   {cmd.state}
                 </Flex>
-                <Flex p={1}>
-                  <Text fontWeight="bold">ITEMIDS:</Text>
-                  <Box mx={1} />
-                  {cmd.itemids.toString()}
-                </Flex>
+                {cmd.items ? (
+                  <ItemPool items={cmd.items}/>
+                ) : (
+                  <Flex p={1}>
+                    <Text fontWeight="bold">ITEMS:</Text>
+                    <Box mx={1} />
+                    {cmd.itemids.join(', ')}
+                  </Flex>
+                )}
               </Box>
             </Flex>
           )

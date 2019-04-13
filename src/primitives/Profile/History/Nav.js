@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 const Nav = ({ routes, location }) => (
   <Flex
-    p={2}
+    p={3}
     width={1}
     css={{
       background: 'rgba(0,0,0,0.2)',
