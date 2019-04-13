@@ -18,6 +18,7 @@ class DepositModal extends React.Component {
       items: [],
       selectedItems: [],
       total: 0,
+      inventoryValue: 0,
     }
   }
 
@@ -31,7 +32,11 @@ class DepositModal extends React.Component {
 
     if (onRefresh) {
       return onRefresh().then(items => {
-        this.setState({ items, total: 0, selectedItems: [] })
+        const inventoryValue = items.reduce((memo, item) => {
+          memo = item.price + memo
+          return memo
+        }, 0)
+        this.setState({ items, total: 0, selectedItems: [], inventoryValue })
         this.toggleLoading()
       })
     }
@@ -97,11 +102,14 @@ class DepositModal extends React.Component {
   }
 
   render() {
-    const { loading, requesting, items, total, selectedItems } = this.state
+    const { loading, requesting, items, total, selectedItems, inventoryValue } = this.state
     return (
       <Dialog
         {...this.props}
         title={`Deposit: $${Number(total).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })} / $${Number(inventoryValue).toLocaleString(undefined, {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
         })}`}

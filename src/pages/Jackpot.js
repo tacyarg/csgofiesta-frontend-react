@@ -35,7 +35,7 @@ class MainJackpot extends React.Component {
       <Flex
         width={1}
         css={{
-          height: '100%',
+          // height: '100%',
         }}
       >
         <Jackpot

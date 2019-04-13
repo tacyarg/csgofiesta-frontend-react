@@ -1,6 +1,7 @@
 import React from 'react'
 import { Flex, Box, Text } from 'rebass'
-import { FaChevronDown, FaUserCog, FaUser, FaWarehouse } from 'react-icons/fa'
+import { FaChevronDown, FaUserCog, FaUser, FaWarehouse, FaShoppingCart } from 'react-icons/fa'
+import { Link, NavLink } from 'react-router-dom'
 
 import Avatar from '../Avatar'
 
@@ -13,7 +14,7 @@ class UserMenu extends React.Component {
     }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     // console.log(this.props)
   }
 
@@ -62,12 +63,17 @@ const Menu = ({
     {
       icon: FaUserCog,
       label: 'Settings',
-      path: '/profile',
+      path: '/settings',
     },
     {
       icon: FaWarehouse,
       label: 'Backpack',
-      path: '/profile',
+      path: '/backpack',
+    },
+    {
+      label: 'Shop',
+      icon: FaShoppingCart,
+      path: '/shop',
     },
   ],
 }) => (
@@ -84,6 +90,8 @@ const Menu = ({
   >
     {entries.map(row => (
       <Flex
+        as={NavLink}
+        to={row.path}
         key={row.label}
         p={2}
         css={{

@@ -38,8 +38,7 @@ class Room extends React.Component {
         }}
         flexDirection="column"
         css={{
-          position: 'relative',
-          height: '100%',
+          overflow: 'hidden',
           overflowY: 'auto',
         }}
       >

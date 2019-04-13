@@ -1,9 +1,9 @@
 import React from 'react'
 import { Flex, Box } from 'rebass'
+import { FaTwitter, FaDiscord, FaDice } from 'react-icons/fa'
 
 import FooterLink from '../primitives/Footer/Link'
 
-import { FaTwitter, FaDiscord, FaDice } from 'react-icons/fa'
 
 
 class Footer extends React.Component {

@@ -8,10 +8,9 @@ import Room from '../primitives/Chat/Room'
 import InputBox from '../primitives/Chat/InputBox'
 
 class Chat extends React.Component {
-
   render() {
     const { chat, sendMessage } = this.props
-    const {messages=[], id} = chat
+    const { messages = [], id } = chat
     return (
       <Flex
         width={300}
@@ -24,7 +23,9 @@ class Chat extends React.Component {
         }}
       >
         <Header roomid={id} />
-        <Room messages={chat.messages} />
+        <Box css={{ height: '100%', maxHeight: '100%', overflow: 'hidden', overflowY: 'scroll' }}>
+          <Room messages={chat.messages} />
+        </Box>
         <InputBox onSubmit={sendMessage} />
       </Flex>
     )

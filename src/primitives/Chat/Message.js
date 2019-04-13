@@ -11,7 +11,7 @@ const Message = ({ user, message }) => (
     css={{
       background: 'rgba(27, 23, 37, 0.5)',
       border: 'solid rgba(0, 0, 0, 0.2) 1px',
-      borderRadius: 5
+      borderRadius: 5,
     }}
   >
     <Avatar src={user.avatar} mx={2} />
@@ -22,17 +22,27 @@ const Message = ({ user, message }) => (
         overflow: 'hidden',
       }}
     >
-      <Text
-        fontWeight="bold"
-        css={{
-          // opacity: 0.7,
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-        }}
-      >
-        {user.username}
-      </Text>
+      <Flex>
+        <Text
+          fontWeight="bold"
+          css={{
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
+          {user.username}
+        </Text>
+        <Box mx="auto" />
+        <Text
+          fontSize="0.8em"
+          css={{
+            opacity: 0.7,
+          }}
+        >
+          lvl. {user.level || 0}
+        </Text>
+      </Flex>
       <Text
         css={{
           opacity: 0.7,
