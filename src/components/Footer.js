@@ -4,15 +4,13 @@ import { FaTwitter, FaDiscord, FaDice } from 'react-icons/fa'
 
 import FooterLink from '../primitives/Footer/Link'
 
-
-
 class Footer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       routes: [
         {
-          link: '/',
+          link: 'https://www.random.org/randomness/',
           icon: FaDice,
           text: 'Provable Fair',
         },
@@ -33,7 +31,12 @@ class Footer extends React.Component {
   render() {
     const { routes } = this.state
     return (
-      <Flex width={1} p={10} backgroundColor="#221d2e">
+      <Flex
+        width={1}
+        p={10}
+        backgroundColor="#221d2e"
+        css={{ borderTop: '1px solid rgba(0, 0, 0, 0.25)' }}
+      >
         <Box>
           &copy; 2016-2019 CSGOFiesta
           <span>, All Rights Reserved</span>
