@@ -20,6 +20,7 @@ class Commands extends React.Component {
   }
 
   callAction = async () => {
+    this.setState({ loading: true })
     const { action } = this.props
     const list = await action()
     this.setState({ loading: false, list: sortBy(list, 'updated').reverse() })
@@ -80,8 +81,8 @@ class Commands extends React.Component {
                   </Flex>
                   <Flex p={1}>
                     <Text fontWeight="bold">VALUE:</Text>
-                    <Box mx={1} />
-                    ${Number(cmd.value).toLocaleString(undefined, {
+                    <Box mx={1} />$
+                    {Number(cmd.value).toLocaleString(undefined, {
                       minimumFractionDigits: 2,
                       maximumFractionDigits: 2,
                     })}

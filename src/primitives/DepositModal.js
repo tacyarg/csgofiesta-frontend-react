@@ -86,7 +86,7 @@ class DepositModal extends React.Component {
       selectedItems.splice(index, 1)
 
       this.setState({
-        total: total - item.price < 0 ? 0 : total - item.price,
+        total: parseFloat(total.toFixed(2)) - parseFloat(item.price.toFixed(2)),
         selectedItems,
       })
     }
@@ -102,7 +102,14 @@ class DepositModal extends React.Component {
   }
 
   render() {
-    const { loading, requesting, items, total, selectedItems, inventoryValue } = this.state
+    const {
+      loading,
+      requesting,
+      items,
+      total,
+      selectedItems,
+      inventoryValue,
+    } = this.state
     return (
       <Dialog
         {...this.props}

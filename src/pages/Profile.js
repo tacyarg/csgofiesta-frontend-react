@@ -5,6 +5,8 @@ import { Route } from 'react-router-dom'
 import SideNav from '../primitives/Profile/SideNav'
 import Settings from '../primitives/Profile/Settings/Settings'
 import History from '../primitives/Profile/History/History'
+import Backpack from '../primitives/Profile/Backpack'
+import Shop from '../primitives/Profile/Shop'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -20,26 +22,31 @@ class Profile extends React.Component {
           path: '/profile/history',
           Component: History,
         },
+        {
+          path: '/profile/backpack',
+          Component: Backpack,
+        },
+        {
+          path: '/profile/shop',
+          Component: Shop,
+        },
       ],
     }
   }
 
   componentDidMount() {
-    console.log(this.state)
+    // console.log(this.state)
   }
-
-  changePage = path => {}
 
   render() {
     const { user, routes } = this.state
-
     return (
       <Flex
         // p={4}
         width={1}
         css={{ height: '100%' }}
       >
-        <SideNav {...this.props} onSelect={this.changePage} />
+        <SideNav {...this.props} />
         <Box width={1} css={{ height: '100%' }}>
           {routes.map(({ path, Component }) => (
             <Route
