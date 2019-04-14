@@ -10,26 +10,28 @@ class History extends React.Component {
     super(props)
     this.state = {
       routes: [
+        // {
+        //   label: 'Payouts',
+        //   action: props.chipsgg.actions.myPayoutHistory,
+        //   path: '/profile/history/payouts',
+        //   Component: Commands,
+        // },
+        // {
+        //   label: 'Jackpot',
+        //   action: props.chipsgg.actions.myJackpotHistory,
+        //   path: '/profile/history/jackpots',
+        //   Component: Commands,
+        // },
+        // {
+        //   label: 'Deposits',
+        //   action: props.chipsgg.actions.myDepositHistory,
+        //   path: '/profile/history/deposits',
+        //   Component: Commands,
+        // },
         {
-          label: 'Payouts',
-          action: props.chipsgg.actions.myPayoutHistory,
-          // action: async () => {
-          //   let list = await props.chipsgg.actions.myPayoutHistory()
-
-          //   for (let i = 0; i < list.length; i++) {
-          //     const itemids = list[i].itemids
-          //     list[i].items = await props.chipsgg.actions.getAllItems({ itemids })
-          //   }
-
-          //   return list
-          // },
-          path: '/profile/history/payouts',
-          Component: Commands,
-        },
-        {
-          label: 'Jackpot',
-          action: props.chipsgg.actions.myJackpotHistory,
-          path: '/profile/history/jackpots',
+          label: 'Withdraws',
+          action: props.chipsgg.actions.myWithdrawHistory,
+          path: '/profile/history/withdraws',
           Component: Commands,
         },
       ],

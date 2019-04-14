@@ -18,7 +18,7 @@ const PrimaryButton = ({
   ...props
 }) => (
   <Flex
-    onClick={loading ? () => {} : onClick}
+    onClick={loading || disabled ? () => {} : onClick}
     as={Button}
     justifyContent="center"
     alignItems="center"
