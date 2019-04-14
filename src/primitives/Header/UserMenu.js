@@ -69,7 +69,7 @@ const Menu = ({
     {
       label: 'History',
       icon: FaHistory,
-      path: '/profile/history/payouts',
+      path: '/profile/history/withdraws',
     },
     {
       label: 'Backpack',
