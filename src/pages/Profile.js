@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Box } from 'rebass'
+import { Flex, Box, Heading } from 'rebass'
 import { Route } from 'react-router-dom'
 
 import SideNav from '../primitives/Profile/SideNav'
@@ -40,24 +40,36 @@ class Profile extends React.Component {
 
   render() {
     const { user, routes } = this.state
-    return (
-      <Flex
-        // p={4}
-        width={1}
-        css={{ height: '100%' }}
-      >
-        <SideNav {...this.props} />
-        <Box width={1} css={{ height: '100%' }}>
-          {routes.map(({ path, Component }) => (
-            <Route
-              key={path}
-              path={path}
-              render={props => <Component {...this.props} user={user} />}
-            />
-          ))}
-        </Box>
-      </Flex>
-    )
+    if (!user) {
+      return (
+        <Flex
+          p={4}
+          width={1}
+          justifyContent="center"
+          alignItems="create"
+        >
+          <Heading>Please login to view your profile.</Heading>
+        </Flex>
+      )
+    } else {
+      return (
+        <Flex
+          width={1}
+          css={{ height: '100%' }}
+        >
+          <SideNav {...this.props} />
+          <Box width={1} css={{ height: '100%' }}>
+            {routes.map(({ path, Component }) => (
+              <Route
+                key={path}
+                path={path}
+                render={props => <Component {...this.props} user={user} />}
+              />
+            ))}
+          </Box>
+        </Flex>
+      )
+    }
   }
 }
 

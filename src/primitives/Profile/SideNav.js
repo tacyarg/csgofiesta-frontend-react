@@ -86,7 +86,7 @@ class SideNav extends React.Component {
 }
 
 const hoverStyle = {
-  backgroundColor: 'rgba(255,255,255,0.1)',
+  backgroundColor: 'rgba(238, 9, 121, 0.8)',
   // background: 'rgba(27, 23, 37, 0.5)',
   boxShadow: '1px 2px 1px rgba(0, 0, 0, 0.25)',
   outline: 'solid rgba(0, 0, 0, 0.2) 1px',
