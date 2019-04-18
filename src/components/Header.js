@@ -37,9 +37,11 @@ class Header extends React.Component {
   componentDidMount() {
     const { chipsgg } = this.props
 
-    chipsgg.userState.on(['wallet', 'balance'], walletBalance => {
-      this.setState({walletBalance})
-    })
+    if(chipsgg.userState) {
+      chipsgg.userState.on(['wallet', 'balance'], walletBalance => {
+        this.setState({walletBalance})
+      })
+    }
   }
 
   render() {
