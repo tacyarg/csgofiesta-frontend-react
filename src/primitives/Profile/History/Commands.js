@@ -54,7 +54,7 @@ class Commands extends React.Component {
           </Flex>
         ) : (
           list.map(cmd => {
-            // console.log(cmd)
+            console.log(cmd)
             return (
               <Flex
                 key={cmd.id+cmd.created}
@@ -117,7 +117,7 @@ const Payout = cmd => (
     <Prop label="GAME:" value={cmd.game || cmd.type} />
     <Prop
       label="STATE:"
-      value={cmd.state !== 'Success' ? cmd.reject.message : cmd.state}
+      value={cmd.state === 'Error' ? cmd.reject.message : cmd.state}
     />
     <Prop
       label="VALUE:"

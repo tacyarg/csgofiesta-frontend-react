@@ -4,6 +4,7 @@ import Spinner from '../Spinner'
 import ItemPool from '../ItemPool/ItemPool'
 import { sortBy, values } from 'lodash'
 import PrimaryButton from '../PrimaryButton'
+import DepositModal from '../DepositModal'
 
 class Backpack extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Backpack extends React.Component {
         console.log(list)
         this.setState({
           loading: false,
-          list: list
+          list: list,
         })
       })
     }
@@ -80,17 +81,18 @@ class Backpack extends React.Component {
 
   withdrawItems = async () => {
     const { selectedItems } = this.state
-    const { chipsgg } = this.props
+    const { chipsgg, ...props } = this.props
     this.setState({ requesting: true })
     const withdraw = await chipsgg.actions.withdraw({ itemids: selectedItems })
     console.log(withdraw)
     console.log(selectedItems)
-    this.setState({ requesting: false, selectedItems: [], total: 0  })
+    this.setState({ requesting: false, selectedItems: [], total: 0 })
     // this.loadItems()
   }
 
   render() {
     const { loading, list, total, inventoryValue, requesting } = this.state
+    const { chipsgg, ...props } = this.props
     return loading ? (
       <Flex
         alignItems="center"
@@ -112,6 +114,16 @@ class Backpack extends React.Component {
         >
           <Heading>Total Value: ${this.formatNumber(inventoryValue)}</Heading>
           <Box mx="auto" />
+
+          {/* <DepositModal
+            onRefresh={chipsgg.actions.myInventory}
+            onRequest={itemids => chipsgg.actions.sendMyItems({ 
+              userid: '939f65e0-ee5c-460a-be48-aed48ab70ea6',
+              itemids })}
+            buttonText="Gift Items"
+            title="Gift Backpack Items"
+          />
+          <Box mx={2} /> */}
           <PrimaryButton
             disabled={!(total > 0)}
             loading={requesting}

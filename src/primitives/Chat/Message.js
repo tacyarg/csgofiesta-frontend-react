@@ -46,6 +46,7 @@ const Message = ({ user, message }) => (
       <Text
         css={{
           opacity: 0.7,
+          whiteSpace: 'normal',
         }}
       >
         {message}

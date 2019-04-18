@@ -71,7 +71,12 @@ class Wheel extends React.Component {
     }
 
     const names = bets.map(bet => bet.player.name)
-    const values = bets.map(bet => bet.value)
+    const values = bets.map(bet => {
+      return Number(bet.value).toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+    })
     const colors = bets.map(bet => bet.color)
 
     this.setState({

@@ -112,7 +112,6 @@ class DepositModal extends React.Component {
     } = this.state
     return (
       <Dialog
-        {...this.props}
         title={`Deposit: $${Number(total).toLocaleString(undefined, {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
@@ -121,6 +120,7 @@ class DepositModal extends React.Component {
           maximumFractionDigits: 2,
         })}`}
         buttonText="Deposit"
+        {...this.props}
       >
         {({ state, close }) => (
           <Flex

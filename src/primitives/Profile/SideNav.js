@@ -1,6 +1,12 @@
 import React from 'react'
 import { Flex, Box, Text } from 'rebass'
-import { FaCog, FaHistory, FaWarehouse, FaShoppingCart } from 'react-icons/fa'
+import {
+  FaCog,
+  FaHistory,
+  FaWarehouse,
+  FaShoppingCart,
+  FaHeadset,
+} from 'react-icons/fa'
 import { Link, NavLink } from 'react-router-dom'
 
 class SideNav extends React.Component {
@@ -29,6 +35,11 @@ class SideNav extends React.Component {
           label: 'Shop',
           icon: FaShoppingCart,
           path: '/profile/shop',
+        },
+        {
+          label: 'Support',
+          icon: FaHeadset,
+          path: '/profile/support',
         },
       ],
     }

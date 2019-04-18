@@ -7,6 +7,7 @@ import Settings from '../primitives/Profile/Settings/Settings'
 import History from '../primitives/Profile/History/History'
 import Backpack from '../primitives/Profile/Backpack'
 import Shop from '../primitives/Profile/Shop'
+import Support from '../primitives/Profile/Support'
 
 class Profile extends React.Component {
   constructor(props) {
@@ -29,6 +30,10 @@ class Profile extends React.Component {
         {
           path: '/profile/shop',
           Component: Shop,
+        },
+        {
+          path: '/profile/support',
+          Component: Support,
         },
       ],
     }

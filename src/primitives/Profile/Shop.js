@@ -40,7 +40,7 @@ class Shop extends React.Component {
 
   loadItems = async () => {
     this.setState({ loading: true })
-    const { chipsgg } = this.props
+    const { chipsgg, ...props } = this.props
     const list = await chipsgg.actions.shopInventory()
     const inventoryValue = list.reduce((memo, item) => {
       memo = item.price + memo

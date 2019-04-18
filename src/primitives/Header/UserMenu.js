@@ -6,6 +6,7 @@ import {
   FaCog,
   FaWarehouse,
   FaShoppingCart,
+  FaHeadset
 } from 'react-icons/fa'
 import { Link, NavLink } from 'react-router-dom'
 
@@ -89,6 +90,11 @@ const Menu = ({
       icon: FaShoppingCart,
       path: '/profile/shop',
     },
+    {
+      label: 'Support',
+      icon: FaHeadset,
+      path: '/profile/support',
+    }
   ],
 }) => (
   <Flex

@@ -71,7 +71,7 @@ class Header extends React.Component {
           <UserMenu {...user} walletBalance={walletBalance} />
         ) : (
           <PrimaryButton mx={4} onClick={chipsgg.actions.loginOpskins}>
-            Opskins Login
+            WAX Login
           </PrimaryButton>
         )}
       </Flex>
