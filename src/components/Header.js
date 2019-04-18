@@ -13,6 +13,7 @@ class Header extends React.Component {
 
     this.state = {
       user: props.chipsgg.userState ? props.chipsgg.userState('me') : null,
+      walletBalance: props.chipsgg.userState ? props.chipsgg.userState(['wallet', 'balance']) : 0,
       routes: [
         {
           path: '/jackpot',
@@ -33,8 +34,16 @@ class Header extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const { chipsgg } = this.props
+
+    chipsgg.userState.on(['wallet', 'balance'], walletBalance => {
+      this.setState({walletBalance})
+    })
+  }
+
   render() {
-    const { routes, user } = this.state
+    const { routes, user, walletBalance } = this.state
     const { chipsgg } = this.props
 
     return (
@@ -57,7 +66,7 @@ class Header extends React.Component {
         ))}
         <Box mx="auto" />
         {user ? (
-          <UserMenu {...user} />
+          <UserMenu {...user} walletBalance={walletBalance} />
         ) : (
           <PrimaryButton mx={4} onClick={chipsgg.actions.loginOpskins}>
             Opskins Login

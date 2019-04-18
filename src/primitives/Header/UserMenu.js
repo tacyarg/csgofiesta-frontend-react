@@ -32,6 +32,7 @@ class UserMenu extends React.Component {
     const {
       avatar = 'https://steamcdn-a.opskins.media/steamcommunity/public/images/avatars/41/4137b9b5854d565b229e5912bd373356fe8f5c87_full.jpg',
       username = 'taycarg',
+      walletBalance = 0,
     } = this.props
     const { showMenu } = this.state
     return (
@@ -47,6 +48,13 @@ class UserMenu extends React.Component {
         flexDirection="column"
       >
         <Flex alignItems="center">
+          <Box p={2}>
+            $
+            {Number(walletBalance).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            })}
+          </Box>
           <Avatar src={avatar} mx={2} />
           <Text mx={2} fontWeight="bold">
             {username}

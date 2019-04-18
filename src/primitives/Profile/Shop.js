@@ -79,13 +79,11 @@ class Shop extends React.Component {
   }
 
   buyItems = async () => {
-    // const { selectedItems } = this.state
-    // const { chipsgg } = this.props
-    // this.setState({ requesting: true })
-    // const withdraw = await chipsgg.actions.buyShopItems({ itemids: selectedItems })
-    // console.log(withdraw)
-    // console.log(selectedItems)
-    // this.setState({ requesting: false, selectedItems: [], total: 0  })
+    const { selectedItems } = this.state
+    const { chipsgg } = this.props
+    this.setState({ requesting: true })
+    const withdraw = await chipsgg.actions.buyShopItems({ itemids: selectedItems })
+    this.setState({ requesting: false, selectedItems: [], total: 0  })
   }
 
   render() {
