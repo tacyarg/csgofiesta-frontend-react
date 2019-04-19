@@ -12,8 +12,6 @@ class Jackpot extends React.Component {
   render() {
     const { jackpot = fakeJackpot, ...props } = this.props
 
-    // console.log(jackpot)
-
     return (
       <Flex width={1} p={3}>
         <SidePanel {...jackpot} {...props} />

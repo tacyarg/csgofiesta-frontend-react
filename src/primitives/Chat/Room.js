@@ -11,6 +11,7 @@ class Room extends React.PureComponent {
 
   componentDidMount() {
     // setInterval(this.scrollToBottom, 250)
+    this.scrollToBottom()
   }
 
   componentDidUpdate() {

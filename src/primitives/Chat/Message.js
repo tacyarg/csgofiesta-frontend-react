@@ -35,8 +35,10 @@ const Message = ({ user, message }) => (
         </Text>
         <Box mx="auto" />
         <Text
+          mx={2}
           fontSize="0.8em"
           css={{
+            whiteSpace: 'nowrap',
             opacity: 0.7,
           }}
         >

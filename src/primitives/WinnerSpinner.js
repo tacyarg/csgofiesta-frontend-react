@@ -12,6 +12,7 @@ class WinnerSpinner extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
+      winner: props.winner,
       spinnerContent: [],
       winningIndex: 200,
       width: 0,
@@ -26,12 +27,14 @@ class WinnerSpinner extends React.PureComponent {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props.winner !== nextProps.winner
+    // console.log(this.props.winner, nextProps.winner)
+    // return this.props.winner !== nextProps.winner
+    return false
   }
 
   componentWillMount() {
-    const { players, winner } = this.props
-    const { winningIndex } = this.state
+    const { players } = this.props
+    const { winningIndex, winner } = this.state
     const spinnerContent = this.generateSpinner(players)
 
     const player = clone(players.find(plr => plr.id === winner))
@@ -112,8 +115,8 @@ class WinnerSpinner extends React.PureComponent {
           stop.play()
         },
         onComplete: () => {
-          const { players, winner } = this.props
-          const { winningIndex, spinnerContent } = this.state
+          const { players } = this.props
+          const { winningIndex, spinnerContent, winner } = this.state
 
           const player = clone(players.find(plr => plr.id === winner))
           winner.selected = true
