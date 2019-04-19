@@ -25,6 +25,10 @@ class WinnerSpinner extends React.PureComponent {
     this.setState({ width: this.myElement.offsetWidth })
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.winner !== nextProps.winner
+  }
+
   componentWillMount() {
     const { players, winner } = this.props
     const { winningIndex } = this.state
