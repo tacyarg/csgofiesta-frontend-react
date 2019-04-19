@@ -11,7 +11,6 @@ import WinnerSpinner from '../primitives/WinnerSpinner'
 class Jackpot extends React.Component {
   render() {
     const { jackpot = fakeJackpot, ...props } = this.props
-
     return (
       <Flex width={1} p={3}>
         <SidePanel {...jackpot} {...props} />

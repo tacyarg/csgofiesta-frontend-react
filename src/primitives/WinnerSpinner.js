@@ -26,11 +26,11 @@ class WinnerSpinner extends React.PureComponent {
     this.setState({ width: this.myElement.offsetWidth })
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    // console.log(this.props.winner, nextProps.winner)
-    // return this.props.winner !== nextProps.winner
-    return false
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   // console.log(this.props.winner, nextProps.winner)
+  //   // return this.props.winner !== nextProps.winner
+  //   return false
+  // }
 
   componentWillMount() {
     const { players } = this.props
@@ -97,7 +97,6 @@ class WinnerSpinner extends React.PureComponent {
           start.play()
         },
         onUpdate(tween) {
-          console.log(tween.target._gsTransform)
           const x = tween.target._gsTransform.x
           const tile = Math.abs(Math.round(x / tileSize))
           if (lastTile < tile) {
