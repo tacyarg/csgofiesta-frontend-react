@@ -7,7 +7,7 @@ import Header from '../primitives/Chat/Header'
 import Room from '../primitives/Chat/Room'
 import InputBox from '../primitives/Chat/InputBox'
 
-class Chat extends React.Component {
+class Chat extends React.PureComponent {
   render() {
     const { chat, sendMessage } = this.props
     const { messages = [], id } = chat

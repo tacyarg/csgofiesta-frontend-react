@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex, Box } from 'rebass'
 import { FaPaperPlane } from 'react-icons/fa'
 
-class InputBox extends React.Component {
+class InputBox extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {

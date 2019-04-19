@@ -5,7 +5,7 @@ import ItemPool from '../ItemPool/ItemPool'
 import { sortBy, values } from 'lodash'
 import PrimaryButton from '../PrimaryButton'
 
-class Shop extends React.Component {
+class Shop extends React.PureComponent {
   constructor(props) {
     super(props)
 

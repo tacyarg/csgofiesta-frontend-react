@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex, Box } from 'rebass'
 
-class NotFound extends React.Component {
+class NotFound extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {}

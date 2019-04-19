@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex, Box, Text, Image } from 'rebass'
 
-class GameItem extends React.Component {
+class GameItem extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {

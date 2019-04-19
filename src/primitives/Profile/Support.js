@@ -6,13 +6,14 @@ import PrimaryButton from '../PrimaryButton'
 import Input from '../Input'
 import TextArea from '../TextArea'
 
-class Settings extends React.Component {
+class Settings extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
       user: props.user,
       subject: '',
       message: '',
+      email: props.user.email,
       loading: false,
       disabled: false,
     }
@@ -22,18 +23,17 @@ class Settings extends React.Component {
 
   setMySupportEmail = async () => {
     const { chipsgg } = this.props
-    const { user, message } = this.state
+    const { user, message, email } = this.state
     this.setState({ loading: true })
     await chipsgg.actions.setMySupportEmail({
-      email: user.email,
+      email,
       message,
     })
     this.setState({ loading: false, disabled: true, message: '' })
   }
 
   render() {
-    const { user, subject } = this.props
-    const { loading, disabled } = this.state
+    const { loading, disabled, user, subject, email } = this.state
     return (
       <Flex
         p={4}
@@ -54,11 +54,11 @@ class Settings extends React.Component {
             width={1 / 2}
             flexDirection="column"
           >
-            {/* <Input
-            label="Subject:"
-            value={subject}
-            onChange={subject => this.setState({ subject })}
-          /> */}
+            <Input
+            label="Email:"
+            value={email}
+            onChange={email => this.setState({ email })}
+          />
             <TextArea
               label="Message:"
               value={subject}

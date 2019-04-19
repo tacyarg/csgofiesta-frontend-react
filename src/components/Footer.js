@@ -4,7 +4,7 @@ import { FaTwitter, FaDiscord, FaDice } from 'react-icons/fa'
 
 import FooterLink from '../primitives/Footer/Link'
 
-class Footer extends React.Component {
+class Footer extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {

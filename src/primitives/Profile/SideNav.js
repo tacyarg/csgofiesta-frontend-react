@@ -9,7 +9,7 @@ import {
 } from 'react-icons/fa'
 import { Link, NavLink } from 'react-router-dom'
 
-class SideNav extends React.Component {
+class SideNav extends React.PureComponent {
   constructor(props) {
     super(props)
 

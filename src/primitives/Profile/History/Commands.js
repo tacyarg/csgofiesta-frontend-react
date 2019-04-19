@@ -7,7 +7,7 @@ import Spinner from '../../Spinner'
 import ItemPool from '../../ItemPool/ItemPool'
 import PrimaryButton from '../../PrimaryButton'
 
-class Commands extends React.Component {
+class Commands extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {

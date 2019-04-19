@@ -19,14 +19,14 @@ class Settings extends React.Component {
     const { chipsgg } = this.props
     this.setMyExpressTradeUrl = debounce(
       chipsgg.actions.setMyExpressTradeUrl,
-      1000
+      250
     )
-    this.setMyYoutubeUrl = debounce(chipsgg.actions.setMyYoutubeUrl, 1000)
-    this.setMyTwitchUrl = debounce(chipsgg.actions.setMyTwitchUrl, 1000)
-    this.setMySupportEmail = debounce(chipsgg.actions.setMySupportEmail, 1000)
+    this.setMyYoutubeUrl = debounce(chipsgg.actions.setMyYoutubeUrl, 250)
+    this.setMyTwitchUrl = debounce(chipsgg.actions.setMyTwitchUrl, 250)
+    this.setMySupportEmail = debounce(chipsgg.actions.setMySupportEmail, 250)
     this.setMyProfileBackgroundURL = debounce(
       chipsgg.actions.setMyProfileBackgroundURL,
-      1000
+      250
     )
   }
 

@@ -8,7 +8,7 @@ import ItemPool from './ItemPool/ItemPool'
 import PrimaryButton from './PrimaryButton'
 import Spinner from './Spinner'
 
-class DepositModal extends React.Component {
+class DepositModal extends React.PureComponent {
   constructor(props) {
     super(props)
 

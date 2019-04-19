@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flex, Box, Text } from 'rebass'
 
-class Input extends React.Component {
+class Input extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {

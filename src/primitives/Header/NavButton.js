@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Flex, Box, Text } from 'rebass'
 
-class NavButton extends React.Component {
+class NavButton extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {

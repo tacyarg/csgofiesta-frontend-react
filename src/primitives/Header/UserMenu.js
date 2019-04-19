@@ -12,7 +12,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 import Avatar from '../Avatar'
 
-class UserMenu extends React.Component {
+class UserMenu extends React.PureComponent {
   constructor(props) {
     super(props)
 

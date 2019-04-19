@@ -31,7 +31,7 @@ class Wheel extends React.Component {
         labels: ['Red', 'Green', 'Yellow'],
         datasets: [
           {
-            borderWidth: 5,
+            borderWidth: 8,
             data: [300, 50, 100],
             backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
             // hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],

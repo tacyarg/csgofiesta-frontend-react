@@ -5,7 +5,7 @@ import { sortBy } from 'lodash'
 
 import GameItem from './GameItem'
 
-class ItemPool extends React.Component {
+class ItemPool extends React.PureComponent {
   render() {
     const { items, ...props } = this.props
     return (

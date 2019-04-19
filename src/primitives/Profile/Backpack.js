@@ -6,7 +6,7 @@ import { sortBy, values } from 'lodash'
 import PrimaryButton from '../PrimaryButton'
 import DepositModal from '../DepositModal'
 
-class Backpack extends React.Component {
+class Backpack extends React.PureComponent {
   constructor(props) {
     super(props)
 

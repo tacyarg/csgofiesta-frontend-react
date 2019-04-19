@@ -23,7 +23,7 @@ const Overlay = props => (
   </Flex>
 )
 
-class DepositModal extends React.Component {
+class DepositModal extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {

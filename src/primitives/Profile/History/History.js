@@ -5,7 +5,7 @@ import { Route, Redirect } from 'react-router-dom'
 import Nav from './Nav'
 import Commands from './Commands'
 
-class History extends React.Component {
+class History extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {

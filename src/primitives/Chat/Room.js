@@ -3,7 +3,7 @@ import { Flex, Box } from 'rebass'
 
 import Message from './Message'
 
-class Room extends React.Component {
+class Room extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = { pauseScroll: false }

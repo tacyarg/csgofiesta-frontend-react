@@ -9,7 +9,7 @@ import Backpack from '../primitives/Profile/Backpack'
 import Shop from '../primitives/Profile/Shop'
 import Support from '../primitives/Profile/Support'
 
-class Profile extends React.Component {
+class Profile extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
