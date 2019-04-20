@@ -161,7 +161,7 @@ const Offer = cmd => (
       </PrimaryButton>
     </Flex>
     {cmd.items ? (
-      <ItemPool items={cmd.items} />
+      <ItemPool p={2} items={cmd.items} />
     ) : (
       <Prop label="ITEMS:" value={cmd.itemids.join(', ')} />
     )}

@@ -22,6 +22,7 @@ class ItemPool extends React.PureComponent {
           overflowY: 'auto',
           // border: '1px solid'
         }}
+        {...props}
       >
         {sortBy(items, 'price').reverse().map((item, index) => (
           <GameItem key={item.id} {...parseItem(item)} {...props}/>
