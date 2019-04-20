@@ -75,7 +75,7 @@ class WinnerSpinner extends React.PureComponent {
 
     const duration = 10
 
-    const offset = random(-60, 60)
+    const offset = random(-55, 55)
 
     const tileSize = 128
     const tickPos = width / 2
