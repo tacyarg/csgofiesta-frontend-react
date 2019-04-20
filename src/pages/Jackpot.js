@@ -9,22 +9,21 @@ class MainJackpot extends React.Component {
     super(props)
     this.state = {
       // TODO: FIX THIS...
-      chat: props.chipsgg.state('chat') || props.chipsgg.state('chats')[0],
-      jackpot: props.chipsgg.state('jackpot'),
+      // chat: props.chipsgg.state('chat') || props.chipsgg.state('chats')[0],
+      // jackpot: props.chipsgg.state('jackpot'),
     }
   }
 
   componentDidMount() {
-    // console.log(this.props.chipsgg.state())
-    this.props.chipsgg.state.on('chat', chat => {
-      if (!chat.messages) chat.messages = []
-      this.setState({ chat })
-    })
-
-    this.props.chipsgg.state.on('jackpot', jackpot => {
-      if(!jackpot) return
-      this.setState({ jackpot })
-    })
+    // // console.log(this.props.chipsgg.state())
+    // this.props.chipsgg.state.on('chat', chat => {
+    //   if (!chat.messages) chat.messages = []
+    //   this.setState({ chat })
+    // })
+    // this.props.chipsgg.state.on('jackpot', jackpot => {
+    //   if (!jackpot) return
+    //   this.setState({ jackpot })
+    // })
   }
 
   render() {
@@ -32,23 +31,9 @@ class MainJackpot extends React.Component {
     const { chipsgg } = this.props
 
     return (
-      <Flex
-        width={1}
-        css={{
-          // height: '100%',
-        }}
-      >
-        <Jackpot
-          jackpot={jackpot}
-          onRequest={itemids =>
-            chipsgg.actions.depositAndJoinJackpot({ itemids })
-          }
-          onRefresh={chipsgg.actions.scanMyVgoInventoryByOpskinsId}
-        />
-        <Chat
-          chat={chat}
-          sendMessage={message => chipsgg.actions.chat({ message })}
-        />
+      <Flex width={1}>
+        <Jackpot {...chipsgg} />
+        <Chat {...chipsgg} />
       </Flex>
     )
   }

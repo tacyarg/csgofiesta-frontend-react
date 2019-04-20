@@ -36,7 +36,7 @@ const Rules = ({ betValueMin = 0, betValueMax = 0, betItemLimit = 0 }) => (
   </Flex>
 )
 
-export default ({ config, ...props }) => (
+export default ({ config, onRequest, onRefresh }) => (
   <InfoPanel>
     <Flex flexDirection="column">
       <Text px={1} fontWeight="bold">
@@ -45,6 +45,6 @@ export default ({ config, ...props }) => (
       <Rules {...config} />
     </Flex>
     <Box mx="auto" />
-    <DepositModal {...config} {...props} />
+    <DepositModal {...config} onRequest={onRequest} onRefresh={onRefresh} />
   </InfoPanel>
 )

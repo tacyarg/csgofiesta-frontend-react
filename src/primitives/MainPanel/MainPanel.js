@@ -9,7 +9,14 @@ import MaracasIcon from '../../assets/img/maracas.png'
 import SombreroIcon from '../../assets/img/sombrero.png'
 import TacosIcon from '../../assets/img/tacos.png'
 
-const generateRoundStats = jackpot => {
+const generateRoundStats = (jackpot, userid) => {
+  const totalBet = jackpot.bets.reduce((memo, bet) => {
+    if (bet.userid === userid) {
+      memo += bet.value
+    }
+    return memo
+  }, 0)
+
   return [
     {
       type: 'number',
@@ -28,30 +35,51 @@ const generateRoundStats = jackpot => {
       icon: TacosIcon,
     },
     {
-      value: '0.00%',
+      value: userid ? (100 / (jackpot.value / totalBet)).toFixed(2) + '%' : '0.00%',
       label: 'Your Odds',
       icon: MaracasIcon,
     },
   ]
 }
 
-export default props => (
-  <Flex
-    p={2}
-    css={{
-      background: 'rgba(0,0,0,0.25)',
-    }}
-    alignItems="center"
-    flexWrap="wrap"
-    justifyContent="center"
-  >
-    <Wheel
-      bets={props.bets.map(bet => {
-        bet.player = props.players.find(player => player.id === bet.userid)
-        return bet
-      })}
-      {...props}
-    />
-    <RoundStats stats={generateRoundStats(props)} />
-  </Flex>
-)
+class MainPanel extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = props.scope()
+  }
+
+  componentDidMount() {
+    const { scope } = this.props
+    scope.on('bets', bets => this.setState({ bets }))
+    scope.on('players', players => this.setState({ players }))
+    scope.on('value', value => this.setState({ value }))
+    scope.on('items', items => this.setState({ items }))
+  }
+
+  render() {
+    const { user = {} } = this.props
+    const { bets, players } = this.state
+
+    return (
+      <Flex
+        p={2}
+        css={{
+          background: 'rgba(0,0,0,0.25)',
+        }}
+        alignItems="center"
+        flexWrap="wrap"
+        justifyContent="center"
+      >
+        <Wheel
+          bets={bets.map(bet => {
+            bet.player = players.find(player => player.id === bet.userid)
+            return bet
+          })}
+        />
+        <RoundStats stats={generateRoundStats(this.state, user.id)} />
+      </Flex>
+    )
+  }
+}
+
+export default MainPanel

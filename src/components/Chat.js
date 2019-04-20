@@ -7,10 +7,33 @@ import Header from '../primitives/Chat/Header'
 import Room from '../primitives/Chat/Room'
 import InputBox from '../primitives/Chat/InputBox'
 
-class Chat extends React.PureComponent {
+class Chat extends React.Component {
+  constructor(props) {
+    super(props)
+
+    const { userState, state, actions } = props
+    this.sendMessage = message => actions.chat({ message })
+    this.scope = userState ? state.scope('chat') : state.scope(['chats', 0])
+
+    this.state = {
+      messages: this.scope('messages'),
+    }
+  }
+  
+  componentDidMount() {
+    this.scope.on('messages', messages => {
+      this.setState({
+        messages,
+      })
+    })
+  }
+
+  componentWillUnmount() {
+    this.scope.disconnect()
+  }
+
   render() {
-    const { chat, sendMessage } = this.props
-    const { messages = [], id } = chat
+    const { messages = [], id } = this.state
     return (
       <Flex
         width={300}
@@ -23,10 +46,17 @@ class Chat extends React.PureComponent {
         }}
       >
         <Header roomid={id} />
-        <Box css={{ height: '100%', maxHeight: '100%', overflow: 'hidden', overflowY: 'scroll' }}>
-          <Room messages={chat.messages} />
+        <Box
+          css={{
+            height: '100%',
+            maxHeight: '100%',
+            overflow: 'hidden',
+            overflowY: 'scroll',
+          }}
+        >
+          <Room messages={messages} />
         </Box>
-        <InputBox onSubmit={sendMessage} />
+        <InputBox onSubmit={this.sendMessage} />
       </Flex>
     )
   }

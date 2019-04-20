@@ -14,7 +14,7 @@ const Overlay = props => (
       height: '100vh',
       width: '100vw',
       zIndex: 9999,
-      backgroundColor: 'rgba(0,0,0,0.5)',
+      backgroundColor: 'rgba(0,0,0,0.8)',
     }}
     justifyContent="center"
     alignItems="center"

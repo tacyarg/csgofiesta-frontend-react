@@ -24,7 +24,7 @@ class ItemPool extends React.PureComponent {
         }}
       >
         {sortBy(items, 'price').reverse().map((item, index) => (
-          <GameItem key={item.id} {...parseItem(item)} {...props} />
+          <GameItem key={item.id} {...parseItem(item)} {...props}/>
         ))}
       </Flex>
     )
