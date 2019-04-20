@@ -23,7 +23,7 @@ class DepositModal extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.onRefresh()
+    // this.onRefresh()
   }
 
   onRefresh = () => {

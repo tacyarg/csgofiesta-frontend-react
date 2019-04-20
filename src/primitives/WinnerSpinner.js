@@ -10,7 +10,6 @@ import { TimelineMax, Circ, Expo, Power4, TweenMax } from 'gsap'
 
 import fakePlayer from '../libs/fakePlayer'
 
-
 class WinnerSpinner extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -30,7 +29,7 @@ class WinnerSpinner extends React.PureComponent {
   }
 
   componentWillMount() {
-    const { players } = this.props
+    const { players = [] } = this.props
     const { winningIndex, winner } = this.state
     const spinnerContent = this.generateSpinner(players)
 
@@ -76,7 +75,7 @@ class WinnerSpinner extends React.PureComponent {
 
     const duration = 10
 
-    const offset = random(-50, 50)
+    const offset = random(-75, 75)
 
     const tileSize = 128
     const tickPos = width / 2
@@ -114,7 +113,8 @@ class WinnerSpinner extends React.PureComponent {
           const { players } = this.props
           const { winningIndex, spinnerContent, winner } = this.state
 
-          const player = clone(players.find(plr => plr.id === winner)) || fakePlayer
+          const player =
+            clone(players.find(plr => plr.id === winner)) || fakePlayer
           player.selected = true
           spinnerContent.splice(winningIndex, 1, player)
 

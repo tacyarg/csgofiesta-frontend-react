@@ -38,6 +38,15 @@ class Shop extends React.PureComponent {
     // this.loadItems()
   }
 
+  componentDidUpdate() {
+    const {list} = this.state
+    const inventoryValue = list.reduce((memo, item) => {
+      memo = item.price + memo
+      return memo
+    }, 0)
+    return this.setState({inventoryValue})
+  }
+
   loadItems = async () => {
     this.setState({ loading: true })
     const { chipsgg, ...props } = this.props

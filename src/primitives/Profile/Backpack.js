@@ -20,6 +20,15 @@ class Backpack extends React.PureComponent {
     }
   }
 
+  componentDidUpdate() {
+    const { list } = this.state
+    const inventoryValue = list.reduce((memo, item) => {
+      memo = item.price + memo
+      return memo
+    }, 0)
+    return this.setState({ inventoryValue })
+  }
+
   componentDidMount() {
     const { chipsgg } = this.props
     if (chipsgg.userState) {
