@@ -85,7 +85,7 @@ class MainPanel extends React.Component {
           state={state}
           timeleft={timeleft}
         />
-        <RoundStats stats={generateRoundStats(this.state, user.id)} />
+        <RoundStats stats={generateRoundStats(this.state, user ? user.id : null)} />
       </Flex>
     )
   }
