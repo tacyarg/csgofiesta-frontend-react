@@ -4,6 +4,7 @@ import { Flex } from 'rebass'
 import InfoBar from './InfoBar'
 import Bet from './Bet'
 
+import fakePlayer from '../../libs/fakePlayer'
 
 class SidePanel extends React.Component {
   constructor(props) {
@@ -43,7 +44,8 @@ class SidePanel extends React.Component {
         >
           {bets.map(bet => {
             bet.chance = (100 / (value / bet.value)).toFixed(2)
-            bet.player = players.find(player => player.id === bet.userid)
+            bet.player =
+              players.find(player => player.id === bet.userid) || fakePlayer
             return <Bet key={bet.id} {...bet} />
           })}
         </Flex>

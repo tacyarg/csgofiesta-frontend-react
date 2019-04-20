@@ -9,6 +9,8 @@ import MaracasIcon from '../../assets/img/maracas.png'
 import SombreroIcon from '../../assets/img/sombrero.png'
 import TacosIcon from '../../assets/img/tacos.png'
 
+import fakePlayer from '../../libs/fakePlayer'
+
 const generateRoundStats = (jackpot, userid) => {
   const totalBet = jackpot.bets.reduce((memo, bet) => {
     if (bet.userid === userid) {
@@ -35,7 +37,9 @@ const generateRoundStats = (jackpot, userid) => {
       icon: TacosIcon,
     },
     {
-      value: userid ? (100 / (jackpot.value / totalBet)).toFixed(2) + '%' : '0.00%',
+      value: userid
+        ? (100 / (jackpot.value / totalBet)).toFixed(2) + '%'
+        : '0.00%',
       label: 'Your Odds',
       icon: MaracasIcon,
     },
@@ -54,11 +58,13 @@ class MainPanel extends React.Component {
     scope.on('players', players => this.setState({ players }))
     scope.on('value', value => this.setState({ value }))
     scope.on('items', items => this.setState({ items }))
+    scope.on('state', state => this.setState({ state }))
+    scope.on('timeleft', timeleft => this.setState({ timeleft }))
   }
 
   render() {
     const { user = {} } = this.props
-    const { bets, players } = this.state
+    const { bets, players, state, timeleft } = this.state
 
     return (
       <Flex
@@ -72,9 +78,12 @@ class MainPanel extends React.Component {
       >
         <Wheel
           bets={bets.map(bet => {
-            bet.player = players.find(player => player.id === bet.userid)
+            bet.player =
+              players.find(player => player.id === bet.userid) || fakePlayer
             return bet
           })}
+          state={state}
+          timeleft={timeleft}
         />
         <RoundStats stats={generateRoundStats(this.state, user.id)} />
       </Flex>

@@ -8,6 +8,9 @@ import startSound from '../assets/sound/start2.mp3'
 
 import { TimelineMax, Circ, Expo, Power4, TweenMax } from 'gsap'
 
+import fakePlayer from '../libs/fakePlayer'
+
+
 class WinnerSpinner extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -31,7 +34,7 @@ class WinnerSpinner extends React.PureComponent {
     const { winningIndex, winner } = this.state
     const spinnerContent = this.generateSpinner(players)
 
-    const player = clone(players.find(plr => plr.id === winner))
+    const player = clone(players.find(plr => plr.id === winner)) || fakePlayer
     spinnerContent.splice(winningIndex, 1, player)
 
     this.setState({ spinnerContent })
@@ -111,8 +114,8 @@ class WinnerSpinner extends React.PureComponent {
           const { players } = this.props
           const { winningIndex, spinnerContent, winner } = this.state
 
-          const player = clone(players.find(plr => plr.id === winner))
-          winner.selected = true
+          const player = clone(players.find(plr => plr.id === winner)) || fakePlayer
+          player.selected = true
           spinnerContent.splice(winningIndex, 1, player)
 
           this.setState({ spinnerContent })

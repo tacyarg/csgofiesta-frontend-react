@@ -13,9 +13,10 @@ class Chat extends React.Component {
 
     const { userState, state, actions } = props
     this.sendMessage = message => actions.chat({ message })
-    this.scope = userState ? state.scope('chat') : state.scope(['chats', 0])
+    this.scope = state.scope('chat')
 
     this.state = {
+      id: this.scope('id'),
       messages: this.scope('messages'),
     }
   }

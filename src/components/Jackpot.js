@@ -23,16 +23,18 @@ class Jackpot extends React.Component {
 
     this.state = {
       user: userState ? userState('me') : null,
-      items: []
+      items: this.scope('items'),
     }
   }
 
   componentDidMount() {
     this.scope.on('items', items => this.setState({ items }))
+    this.scope.on('players', players => this.setState({ players }))
+    this.scope.on('winner', winner => this.setState({ winner }))
   }
 
-  render() {
-    const { user, items } = this.state
+  render() { 
+    const { user, items, winner, players } = this.state
     return (
       <Flex width={1} p={3}>
         <SidePanel
@@ -43,7 +45,7 @@ class Jackpot extends React.Component {
         <Box mx={1} />
         <Flex flexDirection="column" width={1}>
           <MainPanel user={user} scope={this.scope} />
-          {this.scope('winner') ? <WinnerSpinner {...this.state} /> : null}
+          {winner ? <WinnerSpinner winner={winner} players={players} /> : null}
           <ItemPool items={items} />
         </Flex>
       </Flex>
