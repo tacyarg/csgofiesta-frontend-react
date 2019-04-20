@@ -42,7 +42,15 @@ class DepositModal extends React.PureComponent {
 
   toggleShow = () => {
     const { show, canClose } = this.state
+    const { onClose, onOpen } = this.props
     if (!canClose) return
+
+    if (show) {
+      if (onClose) onClose()
+    } else {
+      if (onOpen) onOpen()
+    }
+
     this.setState({ show: !show, canClose: true })
   }
 

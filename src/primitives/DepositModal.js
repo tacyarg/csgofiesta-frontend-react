@@ -74,8 +74,6 @@ class DepositModal extends React.PureComponent {
   onSelect = item => {
     const { total, selectedItems } = this.state
 
-    // console.log(item.selected, item.id)
-
     if (item.selected) {
       this.setState({
         total: total + item.price,
@@ -95,9 +93,6 @@ class DepositModal extends React.PureComponent {
   canRequest = () => {
     const { minValue = 0, maxItems = 1000 } = this.props
     const { total, selectedItems } = this.state
-
-    console.log(total, minValue, selectedItems.length, maxItems)
-
     return total > minValue && selectedItems.length < maxItems
   }
 
@@ -112,6 +107,14 @@ class DepositModal extends React.PureComponent {
     } = this.state
     return (
       <Dialog
+        onClose={() => {
+          console.log("CLOSE")
+          this.setState({ total: 0, selectedItems: [] })
+        }}
+        onOpen={() => {
+          console.log("OPEN")
+          this.onRefresh()
+        }}
         title={`Deposit: $${Number(total).toLocaleString(undefined, {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
