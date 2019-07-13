@@ -5,7 +5,7 @@
     "chipsgg-client": "^1.2.1",
     "evergreen-ui": "^4.15.0",
     "gsap": "^2.1.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "moment": "^2.24.0",
     "react": "^15.0.0 || ^16.0.0",
     "react-chartjs-2": "^2.7.6",
