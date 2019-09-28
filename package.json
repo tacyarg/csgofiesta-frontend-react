@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "chart.js": "^2.8.0",
     "chipsgg-client": "^1.2.1",
     "evergreen-ui": "^4.15.0",
